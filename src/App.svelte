@@ -1,11 +1,19 @@
 <script lang="ts">
-  import Greet from './lib/Greet.svelte'
+  import { invoke } from "@tauri-apps/api/tauri"
+
+  let name = "";
+  let greetMsg = ""
+
+  async function greet(){
+    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+    greetMsg = await invoke("greet", { name })
+  }
 </script>
 
 <main class="container">
   <h1>Welcome to Tauri!</h1>
 
-  <div class="row">
+  <div class="row">K
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
     </a>
@@ -22,10 +30,14 @@
   </p>
 
   <div class="row">
-    <Greet />
+    <div class="row">
+      <input id="greet-input" placeholder="Enter a nice..." bind:value={name} />
+      <button on:click={greet}>
+        Greet
+      </button>
+    </div>
+    <p>{greetMsg}</p>
   </div>
-
-
 </main>
 
 <style>
