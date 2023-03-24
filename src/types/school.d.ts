@@ -1,12 +1,3 @@
-export type SchoolClass = {
-
-    name: string
-
-    week: Week
-}
-
-export type School = SchoolClass[];
-
 export type Week = Day[]
 
 export type Day = Hour[]
@@ -18,6 +9,8 @@ export type Hour = {
 
 export type TeacherID = number
 
+export type SubjectID = number
+
 export type Teacher = {
 
     id: number
@@ -26,8 +19,6 @@ export type Teacher = {
 }
 
 export type Teachers = Teacher[]
-
-export type SubjectID = number
 
 export type Subject = {
     id: number
