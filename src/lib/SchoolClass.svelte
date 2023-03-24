@@ -10,7 +10,7 @@
             <div class="day">
                 {#each day as hour}
                     <div>
-                        <h3>{hour.teacher}</h3>
+                        <div>{hour.teacher}</div>
                     </div>
                 {/each}
             </div>
@@ -19,6 +19,12 @@
 </main>
 
 <style>
+    h2 {
+        height: 50px;
+        margin: 0;
+        padding: 0;
+    }
+
     .day {
         border: 1px solid black;
     }

@@ -1,24 +1,22 @@
 <script lang="ts">
     import {School} from "../ts/school";
     import SchoolClass from "./SchoolClass.svelte";
+    import DayHeader from "./DayHeader.svelte";
 
     export let school: School;
 </script>
 
-<main>
-    <h2>TimeTable</h2>
-    <div class="table">
-        <div class="days">
-            <div>Montag</div>
-            <div>Dienstag</div>
-            <div>Mittwoch</div>
-            <div>Donnerstag</div>
-            <div>Freitag</div>
-        </div>
-        {#each school.classes as schoolClass}
-            <SchoolClass schoolClass="{schoolClass}"></SchoolClass>
-        {/each}
+<main class="table">
+    <div class="days">
+        <DayHeader>Montag</DayHeader>
+        <DayHeader>Dienstag</DayHeader>
+        <DayHeader>Mittwoch</DayHeader>
+        <DayHeader>Donnerstag</DayHeader>
+        <DayHeader>Freitag</DayHeader>
     </div>
+    {#each school.classes as schoolClass}
+        <SchoolClass schoolClass="{schoolClass}"></SchoolClass>
+    {/each}
 </main>
 
 <style>
@@ -26,9 +24,11 @@
         display: flex;
     }
 
-    .days{
+    .days {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+
+        padding-top: 50px;
     }
 </style>
