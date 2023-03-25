@@ -14,7 +14,7 @@ function createEmptyDay(): Day {
     let day: Day = [];
 
     for (let i = 0; i < 4; i++) {
-        day.push(undefined)
+        day.push(null)
     }
 
     return day;

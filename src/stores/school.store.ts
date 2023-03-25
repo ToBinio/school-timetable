@@ -26,12 +26,12 @@ export function addHour(classIndex: number, dayIndex: number, hourIndex: number)
 
         let day = school[classIndex].week[dayIndex];
 
-        day[hourIndex] = {teacher: -1, subject: undefined}
+        day[hourIndex] = {teacher: -1, subject: null}
 
         //last hour
         if (day.length == hourIndex + 1) {
             for (let schoolClass of school) {
-                schoolClass.week[dayIndex].push(undefined);
+                schoolClass.week[dayIndex].push(null);
             }
         }
 
@@ -90,7 +90,7 @@ function getDayLength(school: School, dayIndex: number): number {
         let first = -1;
 
         for (let i = day.length - 1; i >= 0; i--) {
-            if (day[i] != undefined) {
+            if (day[i] !== null) {
                 first = i;
                 break;
             }

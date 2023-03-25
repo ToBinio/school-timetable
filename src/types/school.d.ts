@@ -7,11 +7,11 @@ export type SchoolClass = {
 
 export type Week = Day[]
 
-export type Day = (Hour | undefined)[]
+export type Day = (Hour | null)[]
 
 export type Hour = {
     teacher: TeacherID
-    subject: SubjectID | undefined
+    subject: SubjectID | null
 }
 
 export type TeacherID = number
@@ -33,3 +33,9 @@ export type Subject = {
 }
 
 export type Subjects = Subject[]
+
+export type Data = {
+    school: School,
+    teachers: Teachers,
+    subjects: Subjects
+}

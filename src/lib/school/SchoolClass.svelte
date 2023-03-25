@@ -21,9 +21,9 @@
             <div class="day">
                 {#each day as hour, hourIndex}
                     <div class="hour"
-                         style="background-color: {hour !== undefined ? $getTeacherById(hour.teacher).color : ''}">
+                         style="background-color: {hour !== null ? $getTeacherById(hour.teacher).color : ''}">
 
-                        {#if hour !== undefined}
+                        {#if hour !== null}
                             <select name="teacher" id="teacher" bind:value={day[hourIndex].teacher}>
                                 {#each $teachers as teacher}
                                     <option value="{teacher.id}"
