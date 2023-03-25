@@ -32,7 +32,7 @@ export function removeTeacher(id: number) {
 
                     for (let hourIndex = 0; hourIndex < day.length; hourIndex++) {
                         if (day[hourIndex] != undefined && day[hourIndex].teacher == id) {
-                            day[hourIndex] = undefined
+                            day[hourIndex].teacher = -1
                         }
                     }
                 }
@@ -60,6 +60,6 @@ export const getTeacherById = derived(teachers, teachers => {
 //init
 // REMIND: remove
 
-addTeacher("Test1", "#125421")
-addTeacher("Test2", "#864132")
-addTeacher("Test3", "#91afd5")
+addTeacher("Teach1", "#125421")
+addTeacher("Teach2", "#864132")
+addTeacher("Teach3", "#91afd5")

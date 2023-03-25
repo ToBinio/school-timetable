@@ -1,6 +1,7 @@
 <script lang="ts">
     import {getTeacherById, teachers} from "../stores/teacher.store.js";
     import {addHour, removeHour, school} from "../stores/school.store.js";
+    import {subjects} from "../stores/subject.store.js";
 
     export let schoolClassIndex: number
 
@@ -28,6 +29,12 @@
                                     <option value="{teacher.id}"
                                             style="background-color: {teacher.color}">{teacher.name}</option>
                                 {/each}
+                            </select>
+                            <select name="subject" id="subject" bind:value={day[hourIndex].subject}>
+                                {#each $subjects as subject}
+                                    <option value="{subject.id}">{subject.name}</option>
+                                {/each}
+                                <option value="{undefined}"></option>
                             </select>
                             <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}

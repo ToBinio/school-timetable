@@ -12,7 +12,7 @@
         }
 
         addTeacher(teacherName, teacherColor)
-    };
+    }
 
     function onRemoveTeacher(id: number) {
         removeTeacher(id)
