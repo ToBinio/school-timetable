@@ -1,5 +1,5 @@
-<script>
-    import {addTeacher, teachers} from "../stores/teacher.store";
+<script lang="ts">
+    import {addTeacher, removeTeacher, teachers} from "../stores/teacher.store";
 
     let teacherName;
     let teacherColor;
@@ -12,6 +12,10 @@
         }
 
         addTeacher(teacherName, teacherColor)
+    };
+
+    function onRemoveTeacher(id: number) {
+        removeTeacher(id)
     }
 </script>
 
@@ -19,8 +23,9 @@
     <div class="teachers">
         {#each $teachers as teacher}
             <div style="background-color: {teacher.color}">
-                {teacher.name}
+                <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
                 <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
+                <button on:click={() => onRemoveTeacher(teacher.id)}>X</button>
             </div>
         {/each}
     </div>

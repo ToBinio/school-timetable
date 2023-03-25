@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {teachers} from "../stores/teacher.store.js";
+    import {getTeacherById, teachers} from "../stores/teacher.store.js";
     import {addHour, removeHour, school} from "../stores/school.store.js";
 
     export let schoolClassIndex: number
@@ -20,11 +20,10 @@
             <div class="day">
                 {#each day as hour, hourIndex}
                     <div class="hour"
-                         style="background-color: {hour !== undefined ? $teachers[hour.teacher].color : ''}">
+                         style="background-color: {hour !== undefined ? $getTeacherById(hour.teacher).color : ''}">
 
                         {#if hour !== undefined}
                             <select name="teacher" id="teacher" bind:value={day[hourIndex].teacher}>
-                                <!--todo connect-->
                                 {#each $teachers as teacher}
                                     <option value="{teacher.id}"
                                             style="background-color: {teacher.color}">{teacher.name}</option>

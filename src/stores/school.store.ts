@@ -19,12 +19,12 @@ export function addClass(name: string) {
 addClass("1A")
 addClass("2A")
 addClass("3A")
-addClass("3A")
+addClass("4A")
 
 export function addHour(classIndex: number, day: number, hour: number) {
     school.update(school => {
 
-        school[classIndex].week[day][hour] = {teacher: 0, subject: undefined}
+        school[classIndex].week[day][hour] = {teacher: -1, subject: undefined}
 
         return school;
     })
