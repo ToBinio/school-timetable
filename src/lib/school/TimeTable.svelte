@@ -1,7 +1,13 @@
 <script lang="ts">
     import SchoolClass from "./SchoolClass.svelte";
     import DayHeader from "./DayHeader.svelte";
-    import {longestDay, school} from "../stores/school.store.js";
+    import {addClass, longestDay, school} from "../../stores/school.store.js";
+
+    let className;
+
+    function onAddClass() {
+        addClass(className)
+    }
 </script>
 
 <main class="table">
@@ -15,6 +21,10 @@
     {#each $school as schoolClass, index}
         <SchoolClass schoolClassIndex="{index}"></SchoolClass>
     {/each}
+    <div>
+        <button on:click={onAddClass}>Add</button>
+        <input type="text" name="className" id="className" bind:value={className}>
+    </div>
 </main>
 
 <style>

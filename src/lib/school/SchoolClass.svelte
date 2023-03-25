@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {getTeacherById, teachers} from "../stores/teacher.store.js";
-    import {addHour, removeHour, school} from "../stores/school.store.js";
-    import {subjects} from "../stores/subject.store.js";
+    import {getTeacherById, teachers} from "../../stores/teacher.store.js";
+    import {addHour, removeHour, school} from "../../stores/school.store.js";
+    import {subjects} from "../../stores/subject.store.js";
 
     export let schoolClassIndex: number
 

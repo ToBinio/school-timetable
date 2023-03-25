@@ -1,5 +1,5 @@
 <script lang="ts">
-    import TimeTable from "./lib/TimeTable.svelte";
+    import TimeTable from "./lib/school/TimeTable.svelte";
     import Teachers from "./lib/Teachers.svelte";
     import Subjects from "./lib/Subjects.svelte";
 </script>
