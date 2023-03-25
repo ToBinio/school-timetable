@@ -30,6 +30,16 @@ export function addHour(classIndex: number, day: number, hour: number) {
     })
 }
 
+export function removeHour(classIndex: number, day: number, hour: number) {
+    school.update(school => {
+
+        school[classIndex].week[day][hour] = undefined
+
+        return school;
+    })
+}
+
+// REMIND: needed?
 export const longestDay = derived(school, values => {
 
     let longestDays = [];

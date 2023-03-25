@@ -1,13 +1,18 @@
 <script lang="ts">
     import {teachers} from "../stores/teacher.store.js";
-    import {addHour, school} from "../stores/school.store.js";
+    import {addHour, removeHour, school} from "../stores/school.store.js";
 
     export let schoolClassIndex: number
 
     function onAddHour(day: number, hour: number) {
         addHour(schoolClassIndex, day, hour);
     }
+
+    function onRemoveHour(day: number, hour: number) {
+        removeHour(schoolClassIndex, day, hour);
+    }
 </script>
+
 <main>
     <h2>{$school[schoolClassIndex].name}</h2>
     <div>
@@ -21,9 +26,11 @@
                             <select name="teacher" id="teacher" bind:value={day[hourIndex].teacher}>
                                 <!--todo connect-->
                                 {#each $teachers as teacher}
-                                    <option value="{teacher.id}" style="background-color: {teacher.color}">{teacher.name}</option>
+                                    <option value="{teacher.id}"
+                                            style="background-color: {teacher.color}">{teacher.name}</option>
                                 {/each}
                             </select>
+                            <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}
                             <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>
                         {/if}
