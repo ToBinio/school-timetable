@@ -21,45 +21,83 @@ addClass("2A")
 addClass("3A")
 addClass("4A")
 
-export function addHour(classIndex: number, day: number, hour: number) {
+export function addHour(classIndex: number, dayIndex: number, hourIndex: number) {
     school.update(school => {
 
-        school[classIndex].week[day][hour] = {teacher: -1, subject: undefined}
+        let day = school[classIndex].week[dayIndex];
+
+        day[hourIndex] = {teacher: -1, subject: undefined}
+
+        //last hour
+        if (day.length == hourIndex + 1) {
+            for (let schoolClass of school) {
+                schoolClass.week[dayIndex].push(undefined);
+            }
+        }
 
         return school;
     })
 }
 
-export function removeHour(classIndex: number, day: number, hour: number) {
+export function removeHour(classIndex: number, dayIndex: number, hourIndex: number) {
     school.update(school => {
 
-        school[classIndex].week[day][hour] = undefined
+        let day = school[classIndex].week[dayIndex];
+
+        day[hourIndex] = undefined
+
+        console.log(day.length);
+        console.log(hourIndex);
+
+        //todo delete all before as well
+
+
+        //prelast hour
+        let dayLength = getDayLength(school, dayIndex);
+        let deleteCount = day.length - Math.max(dayLength + 2, 4);
+
+        for (let schoolClass of school) {
+
+            for (let i = 0; i < deleteCount; i++) {
+                schoolClass.week[dayIndex].pop();
+            }
+        }
 
         return school;
     })
 }
 
 // REMIND: needed?
-export const longestDay = derived(school, values => {
+export const longestDay = derived(school, school => {
 
     let longestDays = [];
 
     for (let i = 0; i < 5; i++) {
-        longestDays[i] = getLongestDay(values, i);
+        longestDays[i] = school[0].week[i].length;
     }
 
     return longestDays;
 })
 
-function getLongestDay(school: School, dayIndex: number): number {
+function getDayLength(school: School, dayIndex: number): number {
 
-    let longest = 0;
+    let length = 0;
 
     for (let schoolClass of school) {
-        if (longest < schoolClass.week[dayIndex].length) {
-            longest = schoolClass.week[dayIndex].length;
+
+        let day = schoolClass.week[dayIndex];
+
+        let first = -1;
+
+        for (let i = day.length - 1; i >= 0; i--) {
+            if (day[i] != undefined) {
+                first = i;
+                break;
+            }
         }
+
+        if (length < first) length = first;
     }
 
-    return longest
+    return length;
 }

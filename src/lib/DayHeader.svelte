@@ -38,4 +38,8 @@
         writing-mode: vertical-rl;
         transform: rotate(180deg);
     }
+
+    p{
+        height: 25px;
+    }
 </style>
