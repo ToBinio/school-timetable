@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {SchoolClass} from "../ts/SchoolClass";
     import {teachers} from "../stores/teacher.store.js";
+    import type {SchoolClass} from "../types/school";
 
     export let schoolClass: SchoolClass
 </script>

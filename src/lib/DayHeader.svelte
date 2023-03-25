@@ -1,16 +1,15 @@
+<script lang="ts">
+    export let hourCount: number = 1;
+</script>
+
 <main>
     <h3>
         <slot></slot>
     </h3>
     <div class="days">
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <p>5</p>
-        <p>6</p>
-        <p>7</p>
-        <p>8</p>
+        {#each Array(hourCount) as _, i}
+            <p>{i + 1}</p>
+        {/each}
     </div>
 </main>
 
@@ -37,6 +36,6 @@
 
     h3 {
         writing-mode: vertical-rl;
-        transform:rotate(180deg);
+        transform: rotate(180deg);
     }
 </style>

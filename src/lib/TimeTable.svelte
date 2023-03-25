@@ -1,20 +1,18 @@
 <script lang="ts">
-    import {School} from "../ts/school";
     import SchoolClass from "./SchoolClass.svelte";
     import DayHeader from "./DayHeader.svelte";
-
-    export let school: School;
+    import {longestDay, school} from "../stores/school.store.js";
 </script>
 
 <main class="table">
     <div class="days">
-        <DayHeader>Montag</DayHeader>
-        <DayHeader>Dienstag</DayHeader>
-        <DayHeader>Mittwoch</DayHeader>
-        <DayHeader>Donnerstag</DayHeader>
-        <DayHeader>Freitag</DayHeader>
+        <DayHeader hourCount="{$longestDay[0]}">Montag</DayHeader>
+        <DayHeader hourCount="{$longestDay[1]}">Dienstag</DayHeader>
+        <DayHeader hourCount="{$longestDay[2]}">Mittwoch</DayHeader>
+        <DayHeader hourCount="{$longestDay[3]}">Donnerstag</DayHeader>
+        <DayHeader hourCount="{$longestDay[4]}">Freitag</DayHeader>
     </div>
-    {#each school.classes as schoolClass}
+    {#each $school as schoolClass}
         <SchoolClass schoolClass="{schoolClass}"></SchoolClass>
     {/each}
 </main>

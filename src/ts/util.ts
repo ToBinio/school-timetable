@@ -13,7 +13,7 @@ export function createEmptyWeek(): Week {
 function createEmptyDay(): Day {
     let day: Day = [];
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 5; i++) {
         day.push({subject: undefined, teacher: undefined})
     }
 

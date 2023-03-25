@@ -1,3 +1,10 @@
+export type School = SchoolClass[]
+
+export type SchoolClass = {
+    name: string
+    week: Week
+}
+
 export type Week = Day[]
 
 export type Day = Hour[]
