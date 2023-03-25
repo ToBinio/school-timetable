@@ -12,8 +12,8 @@
         <DayHeader hourCount="{$longestDay[3]}">Donnerstag</DayHeader>
         <DayHeader hourCount="{$longestDay[4]}">Freitag</DayHeader>
     </div>
-    {#each $school as schoolClass}
-        <SchoolClass schoolClass="{schoolClass}"></SchoolClass>
+    {#each $school as schoolClass, index}
+        <SchoolClass schoolClassIndex="{index}"></SchoolClass>
     {/each}
 </main>
 

@@ -20,6 +20,7 @@
         {#each $teachers as teacher}
             <div style="background-color: {teacher.color}">
                 {teacher.name}
+                <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
             </div>
         {/each}
     </div>
@@ -31,7 +32,7 @@
 </main>
 
 <style>
-    .teachers div{
+    .teachers div {
         width: min-content;
     }
 </style>

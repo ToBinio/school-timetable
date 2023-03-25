@@ -3,9 +3,11 @@ import type {Teachers} from "../types/school";
 
 export const teachers = writable<Teachers>([]);
 
+let idCount = 0;
+
 export function addTeacher(name: string, color: string) {
     teachers.update((teachers) => {
-        teachers.push({color: color, id: 0, name: name})
+        teachers.push({color: color, id: idCount++, name: name})
         return teachers;
     })
 }

@@ -13,12 +13,29 @@ export function addClass(name: string) {
     })
 }
 
+//init
+// REMIND: remove
+
+addClass("1A")
+addClass("2A")
+addClass("3A")
+addClass("3A")
+
+export function addHour(classIndex: number, day: number, hour: number) {
+    school.update(school => {
+
+        school[classIndex].week[day][hour] = {teacher: 0, subject: undefined}
+
+        return school;
+    })
+}
+
 export const longestDay = derived(school, values => {
 
     let longestDays = [];
 
     for (let i = 0; i < 5; i++) {
-        longestDays[i] = getLongestDay(values,i);
+        longestDays[i] = getLongestDay(values, i);
     }
 
     return longestDays;

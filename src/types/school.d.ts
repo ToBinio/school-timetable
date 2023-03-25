@@ -7,10 +7,10 @@ export type SchoolClass = {
 
 export type Week = Day[]
 
-export type Day = Hour[]
+export type Day = (Hour | undefined)[]
 
 export type Hour = {
-    teacher: TeacherID | undefined
+    teacher: TeacherID
     subject: SubjectID | undefined
 }
 
