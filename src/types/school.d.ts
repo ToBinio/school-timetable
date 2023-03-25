@@ -15,7 +15,7 @@ export type Teacher = {
 
     id: number
     name: String
-    color: Color
+    color: string
 }
 
 export type Teachers = Teacher[]
@@ -26,9 +26,3 @@ export type Subject = {
 }
 
 export type Subjects = Subject[]
-
-export type  Color = {
-    r: number;
-    g: number;
-    b: number;
-}

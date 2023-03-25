@@ -1,5 +1,6 @@
 <script lang="ts">
     import {SchoolClass} from "../ts/SchoolClass";
+    import {teachers} from "../stores/teacher.store.js";
 
     export let schoolClass: SchoolClass
 </script>
@@ -10,7 +11,15 @@
             <div class="day">
                 {#each day as hour}
                     <div>
-                        <div>{hour.teacher}</div>
+                        <div>
+                            <select name="teacher" id="teacher" bind:value={hour.teacher}>
+                                <!--                                todo connect-->
+                                {#each $teachers as teacher, i}
+                                    <option value="{i}">{teacher.name}</option>
+                                {/each}
+                                <option value="{undefined}"></option>
+                            </select>
+                        </div>
                     </div>
                 {/each}
             </div>

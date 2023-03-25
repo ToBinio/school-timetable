@@ -1,6 +1,7 @@
 <script lang="ts">
     import {School} from "./ts/school";
     import TimeTable from "./lib/TimeTable.svelte";
+    import Teachers from "./lib/Teachers.svelte";
 
     let school = new School();
 
@@ -11,7 +12,8 @@
 </script>
 
 <h2>Stundenplan</h2>
-<TimeTable school="{school}"></TimeTable>
+<TimeTable school="{school}"/>
+<Teachers/>
 
 <style>
 </style>
