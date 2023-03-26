@@ -2,11 +2,12 @@
     import {getTeacherById, teachers} from "../../stores/teacher.store.js";
     import {addHour, removeHour, school} from "../../stores/school.store.js";
     import {subjects} from "../../stores/subject.store.js";
+    import {get} from "svelte/store";
 
     export let schoolClassIndex: number
 
     function onAddHour(day: number, hour: number) {
-        addHour(schoolClassIndex, day, hour);
+        addHour(schoolClassIndex, day, hour, get(school)[schoolClassIndex].defaultTeacher);
     }
 
     function onRemoveHour(day: number, hour: number) {
@@ -15,7 +16,15 @@
 </script>
 
 <main>
-    <h2>{$school[schoolClassIndex].name}</h2>
+    <div id="header">
+        <h2>{$school[schoolClassIndex].name}</h2>
+        <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
+            {#each $teachers as teacher}
+                <option value="{teacher.id}"
+                        style="background-color: {teacher.color}">{teacher.name}</option>
+            {/each}
+        </select>
+    </div>
     <div>
         {#each $school[schoolClassIndex].week as day, dayIndex}
             <div class="day">
@@ -47,8 +56,13 @@
 </main>
 
 <style>
-    h2 {
+    #header {
         height: 50px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
         margin: 0;
         padding: 0;
     }

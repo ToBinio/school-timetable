@@ -1,35 +1,37 @@
-import {derived, writable} from "svelte/store";
-import type {School} from "../types/school";
+import {derived, get, writable} from "svelte/store";
+import type {School, SchoolClass} from "../types/school";
 import {createEmptyWeek} from "../ts/util";
 
 export const school = writable<School>([])
 
 export function addClass(name: string) {
-
-    //todo set day length
-
     school.update((school) => {
 
-        school.push({name: name, week: createEmptyWeek()})
+        let schoolClass: SchoolClass = {name: name, week: createEmptyWeek(), defaultTeacher: -1};
+
+        //fix length
+        for (let i = 0; i < schoolClass.week.length; i++) {
+            let diff = get(longestDay)[i] - schoolClass.week[i].length;
+
+            if (diff > 0) {
+                for (let j = 0; j < diff; j++) {
+                    schoolClass.week[i].push(null);
+                }
+            }
+        }
+
+        school.push(schoolClass)
 
         return school
     })
 }
 
-//init
-// REMIND: remove
-
-addClass("1A")
-addClass("2A")
-addClass("3A")
-addClass("4A")
-
-export function addHour(classIndex: number, dayIndex: number, hourIndex: number) {
+export function addHour(classIndex: number, dayIndex: number, hourIndex: number, defaultTeacher: number) {
     school.update(school => {
 
         let day = school[classIndex].week[dayIndex];
 
-        day[hourIndex] = {teacher: -1, subject: null}
+        day[hourIndex] = {teacher: defaultTeacher, subject: null}
 
         //last hour
         if (day.length == hourIndex + 1) {
@@ -69,7 +71,12 @@ export const longestDay = derived(school, school => {
     let longestDays = [];
 
     for (let i = 0; i < 5; i++) {
-        longestDays[i] = school[0].week[i].length;
+
+        if (school[0] == undefined) {
+            longestDays[i] = 4;
+        } else {
+            longestDays[i] = school[0].week[i].length;
+        }
     }
 
     return longestDays;
@@ -97,3 +104,11 @@ function getDayLength(school: School, dayIndex: number): number {
 
     return length;
 }
+
+//init
+// REMIND: remove
+
+addClass("1A")
+addClass("2A")
+addClass("3A")
+addClass("4A")

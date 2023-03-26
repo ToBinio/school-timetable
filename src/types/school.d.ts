@@ -2,6 +2,7 @@ export type School = SchoolClass[]
 
 export type SchoolClass = {
     name: string
+    defaultTeacher: TeacherID
     week: Week
 }
 
