@@ -1,5 +1,6 @@
 <script lang="ts">
     import {addTeacher, removeTeacher, teachers} from "../stores/teacher.store";
+    import {getWorkHours} from "../stores/workHour.store.js";
 
     let teacherName;
     let teacherColor;
@@ -26,6 +27,7 @@
                 <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
                 <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
                 <button on:click={() => onRemoveTeacher(teacher.id)}>X</button>
+                <div>Stunden: {$getWorkHours(teacher.id)}</div>
             </div>
         {/each}
     </div>
