@@ -5,6 +5,9 @@ import {createEmptyWeek} from "../ts/util";
 export const school = writable<School>([])
 
 export function addClass(name: string) {
+
+    //todo set day length
+
     school.update((school) => {
 
         school.push({name: name, week: createEmptyWeek()})
@@ -44,13 +47,7 @@ export function removeHour(classIndex: number, dayIndex: number, hourIndex: numb
 
         let day = school[classIndex].week[dayIndex];
 
-        day[hourIndex] = undefined
-
-        console.log(day.length);
-        console.log(hourIndex);
-
-        //todo delete all before as well
-
+        day[hourIndex] = null
 
         //prelast hour
         let dayLength = getDayLength(school, dayIndex);
@@ -67,7 +64,6 @@ export function removeHour(classIndex: number, dayIndex: number, hourIndex: numb
     })
 }
 
-// REMIND: needed?
 export const longestDay = derived(school, school => {
 
     let longestDays = [];

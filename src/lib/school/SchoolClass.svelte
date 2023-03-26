@@ -22,7 +22,6 @@
                 {#each day as hour, hourIndex}
                     <div class="hour"
                          style="background-color: {hour !== null ? $getTeacherById(hour.teacher).color : ''}">
-
                         {#if hour !== null}
                             <select name="teacher" id="teacher" bind:value={day[hourIndex].teacher}>
                                 {#each $teachers as teacher}
