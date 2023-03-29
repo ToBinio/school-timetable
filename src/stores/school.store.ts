@@ -1,5 +1,5 @@
 import {derived, get, writable} from "svelte/store";
-import type {School, SchoolClass} from "../types/school";
+import type {Day, School, SchoolClass} from "../types/school";
 import {createEmptyWeek} from "../ts/util";
 
 export const school = writable<School>([])
@@ -23,6 +23,19 @@ export function addClass(name: string) {
         school.push(schoolClass)
 
         return school
+    })
+}
+
+export function removeClass(index: number) {
+    school.update((school) => {
+        
+        school.splice(index, 1);
+
+        for (let dayIndex = 0; dayIndex < 5; dayIndex++) {
+            trimDay(school, dayIndex)
+        }
+
+        return school;
     })
 }
 
@@ -51,19 +64,23 @@ export function removeHour(classIndex: number, dayIndex: number, hourIndex: numb
 
         day[hourIndex] = null
 
-        //prelast hour
-        let dayLength = getDayLength(school, dayIndex);
-        let deleteCount = day.length - Math.max(dayLength + 2, 4);
-
-        for (let schoolClass of school) {
-
-            for (let i = 0; i < deleteCount; i++) {
-                schoolClass.week[dayIndex].pop();
-            }
-        }
+        trimDay(school, dayIndex);
 
         return school;
     })
+}
+
+function trimDay(school: School, dayIndex: number) {
+    let dayLength = getDayLength(school, dayIndex);
+
+    for (let schoolClass of school) {
+
+        let deleteCount = schoolClass.week[dayIndex].length - Math.max(dayLength + 2, 4);
+
+        for (let i = 0; i < deleteCount; i++) {
+            schoolClass.week[dayIndex].pop();
+        }
+    }
 }
 
 export function addTeacher(classIndex: number, dayIndex: number, hourIndex: number, defaultTeacher: number) {

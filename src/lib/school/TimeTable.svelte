@@ -5,8 +5,20 @@
 
     let className;
 
+    let isClassNameError = false;
+
     function onAddClass() {
+
+        isClassNameError = false
+
+        if (className == undefined || className.trim() == "") {
+            isClassNameError = true;
+            return
+        }
+
         addClass(className)
+
+        className = "";
     }
 </script>
 
@@ -22,8 +34,11 @@
         <SchoolClass schoolClassIndex="{index}"></SchoolClass>
     {/each}
     <div>
-        <button on:click={onAddClass}>Add</button>
+        {#if isClassNameError}
+            <div>Dont!</div>
+        {/if}
         <input type="text" name="className" id="className" bind:value={className}>
+        <button on:click={onAddClass}>Add</button>
     </div>
 </main>
 

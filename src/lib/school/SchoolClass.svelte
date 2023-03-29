@@ -1,6 +1,6 @@
 <script lang="ts">
     import {getTeacherById, teachers} from "../../stores/teacher.store.js";
-    import {addHour, addTeacher, cleanTeacher, removeHour, school} from "../../stores/school.store.js";
+    import {addHour, addTeacher, cleanTeacher, removeClass, removeHour, school} from "../../stores/school.store.js";
     import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
     import MarkerDisplay from "./display/MarkerDisplay.svelte";
@@ -23,6 +23,10 @@
         cleanTeacher(schoolClassIndex, day, hour, teacher);
     }
 
+    function onDeleteClass() {
+        removeClass(schoolClassIndex)
+    }
+
 </script>
 
 <main>
@@ -34,6 +38,7 @@
                         style="background-color: {teacher.color}">{teacher.name}</option>
             {/each}
         </select>
+        <button on:click={onDeleteClass}>-</button>
     </div>
     <div>
         {#each $school[schoolClassIndex].week as day, dayIndex}
