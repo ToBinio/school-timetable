@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {addTeacher, removeTeacher, teachers} from "../stores/teacher.store";
+    import {createTeacher, removeTeacher, teachers} from "../stores/teacher.store";
     import {getWorkHours} from "../stores/workHour.store.js";
 
     let teacherName;
@@ -12,7 +12,7 @@
             return
         }
 
-        addTeacher(teacherName, teacherColor)
+        createTeacher(teacherName, teacherColor)
     }
 
     function onRemoveTeacher(id: number) {

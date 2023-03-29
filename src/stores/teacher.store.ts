@@ -6,7 +6,7 @@ export const teachers = writable<Teachers>([]);
 
 let idCount = 0;
 
-export function addTeacher(name: string, color: string) {
+export function createTeacher(name: string, color: string) {
     teachers.update((teachers) => {
         teachers.push({color: color, id: idCount++, name: name})
         return teachers;
@@ -31,8 +31,12 @@ export function removeTeacher(id: number) {
                     let day = schoolClass.week[dayIndex];
 
                     for (let hourIndex = 0; hourIndex < day.length; hourIndex++) {
-                        if (day[hourIndex] != null && day[hourIndex].teacher == id) {
-                            day[hourIndex].teacher = -1
+                        if (day[hourIndex] != null) {
+                            for (let i = day[hourIndex].teachers.length - 1; i >= 0; i--) {
+                                if (day[hourIndex].teachers[i] == id) {
+                                    day[hourIndex].teachers.splice(i, 1);
+                                }
+                            }
                         }
                     }
                 }
@@ -60,6 +64,6 @@ export const getTeacherById = derived(teachers, teachers => {
 //init
 // REMIND: remove
 
-addTeacher("Teach1", "#125421")
-addTeacher("Teach2", "#864132")
-addTeacher("Teach3", "#91afd5")
+createTeacher("Teach1", "#125421")
+createTeacher("Teach2", "#864132")
+createTeacher("Teach3", "#91afd5")

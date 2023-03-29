@@ -11,7 +11,7 @@ export type Week = Day[]
 export type Day = (Hour | null)[]
 
 export type Hour = {
-    teacher: TeacherID
+    teachers: TeacherID[]
     subject: SubjectID | null
 }
 

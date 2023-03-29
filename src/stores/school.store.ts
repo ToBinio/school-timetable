@@ -31,7 +31,7 @@ export function addHour(classIndex: number, dayIndex: number, hourIndex: number,
 
         let day = school[classIndex].week[dayIndex];
 
-        day[hourIndex] = {teacher: defaultTeacher, subject: null}
+        day[hourIndex] = {teachers: [defaultTeacher], subject: null}
 
         //last hour
         if (day.length == hourIndex + 1) {
@@ -60,6 +60,28 @@ export function removeHour(classIndex: number, dayIndex: number, hourIndex: numb
             for (let i = 0; i < deleteCount; i++) {
                 schoolClass.week[dayIndex].pop();
             }
+        }
+
+        return school;
+    })
+}
+
+export function addTeacher(classIndex: number, dayIndex: number, hourIndex: number, defaultTeacher: number) {
+    school.update(school => {
+
+        school[classIndex].week[dayIndex][hourIndex].teachers.push(defaultTeacher);
+
+        return school;
+    })
+}
+
+export function cleanTeacher(classIndex: number, dayIndex: number, hourIndex: number, teacherIndex: number) {
+    school.update(school => {
+
+        let teachers = school[classIndex].week[dayIndex][hourIndex].teachers;
+
+        if (teachers[teacherIndex] == undefined) {
+            teachers.splice(teacherIndex, 1);
         }
 
         return school;

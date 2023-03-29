@@ -11,8 +11,10 @@ export const getWorkHours = derived(school, (school) => {
                 for (let hour of day) {
                     if (hour == null) continue
 
-                    if (hour.teacher == teacherId)
-                        count++;
+                    for (let teacher of hour.teachers) {
+                        if (teacher == teacherId)
+                            count++;
+                    }
                 }
             }
         }

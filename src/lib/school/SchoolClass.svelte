@@ -1,6 +1,6 @@
 <script lang="ts">
     import {getTeacherById, teachers} from "../../stores/teacher.store.js";
-    import {addHour, removeHour, school} from "../../stores/school.store.js";
+    import {addHour, addTeacher, cleanTeacher, removeHour, school} from "../../stores/school.store.js";
     import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
 
@@ -13,6 +13,15 @@
     function onRemoveHour(day: number, hour: number) {
         removeHour(schoolClassIndex, day, hour);
     }
+
+    function onAddTeacher(day: number, hour: number) {
+        addTeacher(schoolClassIndex, day, hour, get(school)[schoolClassIndex].defaultTeacher);
+    }
+
+    function onCleanTeacher(day: number, hour: number, teacher: number) {
+        cleanTeacher(schoolClassIndex, day, hour, teacher);
+    }
+
 </script>
 
 <main>
@@ -29,15 +38,20 @@
         {#each $school[schoolClassIndex].week as day, dayIndex}
             <div class="day">
                 {#each day as hour, hourIndex}
-                    <div class="hour"
-                         style="background-color: {hour !== null ? $getTeacherById(hour.teacher).color : ''}">
+                    <div class="hour">
                         {#if hour !== null}
-                            <select name="teacher" id="teacher" bind:value={day[hourIndex].teacher}>
-                                {#each $teachers as teacher}
-                                    <option value="{teacher.id}"
-                                            style="background-color: {teacher.color}">{teacher.name}</option>
-                                {/each}
-                            </select>
+                            {#each hour.teachers as teacher, teacherIndex}
+                                <select name="teacher" id="teacher" bind:value={day[hourIndex].teachers[teacherIndex]}
+                                        on:change={() => onCleanTeacher(dayIndex,hourIndex,teacherIndex)}
+                                        style="background-color: {$getTeacherById(teacher).color}">
+                                    {#each $teachers as teacher}
+                                        <option value="{teacher.id}"
+                                                style="background-color: {teacher.color}">{teacher.name}</option>
+                                    {/each}
+                                    <option value="{undefined}"></option>
+                                </select>
+                            {/each}
+                            <button on:click={() => onAddTeacher(dayIndex,hourIndex)}>+</button>
                             <select name="subject" id="subject" bind:value={day[hourIndex].subject}>
                                 {#each $subjects as subject}
                                     <option value="{subject.id}">{subject.name}</option>
