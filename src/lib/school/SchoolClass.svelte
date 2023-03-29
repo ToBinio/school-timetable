@@ -27,7 +27,7 @@
 
 <main>
     <div id="header">
-        <h2>{$school[schoolClassIndex].name}</h2>
+        <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
         <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
             {#each $teachers as teacher}
                 <option value="{teacher.id}"

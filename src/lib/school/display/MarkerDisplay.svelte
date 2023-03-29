@@ -8,5 +8,6 @@
         {#each markers as marker, index}
             <option value="{index}">{marker}</option>
         {/each}
+        <option value="{null}"></option>
     </select>
 </main>

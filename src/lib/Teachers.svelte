@@ -1,6 +1,8 @@
 <script lang="ts">
-    import {createTeacher, removeTeacher, teachers} from "../stores/teacher.store";
+    import {createTeacher, getTeacherById, removeTeacher, teachers} from "../stores/teacher.store";
     import {getWorkHours} from "../stores/workHour.store.js";
+    import {get} from "svelte/store";
+    import {confirmPopUp} from "../ts/util";
 
     let teacherName;
     let teacherColor;
@@ -29,8 +31,9 @@
         teacherName = undefined;
     }
 
-    function onRemoveTeacher(id: number) {
-        removeTeacher(id)
+    async function onRemoveTeacher(id: number) {
+        if (await confirmPopUp(`"${get(getTeacherById)(id).name}" löschen?`))
+            removeTeacher(id)
     }
 </script>
 

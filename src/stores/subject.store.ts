@@ -31,7 +31,7 @@ export function removeSubject(id: number) {
                     let day = schoolClass.week[dayIndex];
 
                     for (let hourIndex = 0; hourIndex < day.length; hourIndex++) {
-                        if (day[hourIndex] != null && day[hourIndex].teacher == id) {
+                        if (day[hourIndex] != null && day[hourIndex].subject == id) {
                             day[hourIndex].subject = null
                         }
                     }
