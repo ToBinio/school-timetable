@@ -12,6 +12,8 @@ export type Day = (Hour | null)[]
 
 export type Hour = {
     teachers: TeacherID[]
+
+    marker: number | null
     subject: SubjectID | null
 }
 

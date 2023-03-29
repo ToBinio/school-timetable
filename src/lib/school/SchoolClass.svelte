@@ -3,6 +3,7 @@
     import {addHour, addTeacher, cleanTeacher, removeHour, school} from "../../stores/school.store.js";
     import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
+    import MarkerDisplay from "./display/MarkerDisplay.svelte";
 
     export let schoolClassIndex: number
 
@@ -58,6 +59,7 @@
                                 {/each}
                                 <option value="{undefined}"></option>
                             </select>
+                            <MarkerDisplay bind:markerIndex={day[hourIndex].marker}></MarkerDisplay>
                             <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}
                             <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>
@@ -87,5 +89,6 @@
 
     .hour {
         height: 25px;
+        display: flex;
     }
 </style>

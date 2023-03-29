@@ -31,7 +31,7 @@ export function addHour(classIndex: number, dayIndex: number, hourIndex: number,
 
         let day = school[classIndex].week[dayIndex];
 
-        day[hourIndex] = {teachers: [defaultTeacher], subject: null}
+        day[hourIndex] = {teachers: [defaultTeacher], marker: null, subject: null}
 
         //last hour
         if (day.length == hourIndex + 1) {
