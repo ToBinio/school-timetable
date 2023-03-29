@@ -1,4 +1,4 @@
-import {derived, writable} from "svelte/store";
+import {derived, get, writable} from "svelte/store";
 import type {Teachers} from "../types/school";
 import {school} from "./school.store";
 

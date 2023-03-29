@@ -5,14 +5,28 @@
     let teacherName;
     let teacherColor;
 
+    let isTeacherNameError = false;
+    let isTeacherColorError = false;
+
     function onCreateTeacher() {
 
-        if (teacherName === undefined || teacherColor === undefined) {
-            //todo error notification
-            return
+        isTeacherNameError = false;
+        isTeacherColorError = false;
+
+        if (teacherName === undefined || teacherName.trim() === "") {
+            isTeacherNameError = true;
         }
 
+        if (teacherColor === undefined) {
+            isTeacherColorError = true;
+        }
+
+        if (isTeacherNameError || isTeacherColorError) return;
+
         createTeacher(teacherName, teacherColor)
+
+        teacherColor = undefined;
+        teacherName = undefined;
     }
 
     function onRemoveTeacher(id: number) {
@@ -32,7 +46,13 @@
         {/each}
     </div>
     <div>
+        {#if isTeacherNameError}
+            <div>Dont!</div>
+        {/if}
         <input type="text" name="teacherName" id="teacherName" bind:value={teacherName}>
+        {#if isTeacherColorError}
+            <div>Dont!</div>
+        {/if}
         <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}>
         <button on:click={onCreateTeacher}>add</button>
     </div>
