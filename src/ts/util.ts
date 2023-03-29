@@ -1,6 +1,4 @@
 import type {Day, Week} from "../types/school";
-import {get} from "svelte/store";
-import {getTeacherById} from "../stores/teacher.store";
 
 export function createEmptyWeek(): Week {
     let week: Week = [];
@@ -20,8 +18,4 @@ function createEmptyDay(): Day {
     }
 
     return day;
-}
-
-export async function confirmPopUp(text: string): Promise<boolean> {
-    return await (confirm(text) as any)
 }

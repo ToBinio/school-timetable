@@ -1,9 +1,7 @@
 <script lang="ts">
     import {addSubject, removeSubject} from "../stores/subject.store";
     import {subjects} from "../stores/subject.store.js";
-    import {confirmPopUp} from "../ts/util";
-    import {get} from "svelte/store";
-    import {getTeacherById} from "../stores/teacher.store";
+    import {ask} from "@tauri-apps/api/dialog";
 
     let subjectName;
     let isNameError = false;
@@ -22,7 +20,7 @@
     }
 
     async function onRemoveSubject(id: number, name: string) {
-        if (await confirmPopUp(`"${name}" löschen?`))
+        if (await ask(`"${name}" löschen?`))
             removeSubject(id)
     }
 </script>

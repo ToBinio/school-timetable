@@ -2,7 +2,7 @@
     import {createTeacher, getTeacherById, removeTeacher, teachers} from "../stores/teacher.store";
     import {getWorkHours} from "../stores/workHour.store.js";
     import {get} from "svelte/store";
-    import {confirmPopUp} from "../ts/util";
+    import {ask} from "@tauri-apps/api/dialog";
 
     let teacherName;
     let teacherColor;
@@ -32,7 +32,7 @@
     }
 
     async function onRemoveTeacher(id: number) {
-        if (await confirmPopUp(`"${get(getTeacherById)(id).name}" löschen?`))
+        if (await ask(`"${get(getTeacherById)(id).name}" löschen?`))
             removeTeacher(id)
     }
 </script>
