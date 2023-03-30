@@ -2,6 +2,8 @@
     import SchoolClass from "./SchoolClass.svelte";
     import DayHeader from "./DayHeader.svelte";
     import {addClass, longestDay, school} from "../../stores/school.store.js";
+    import {isFilteredClass, isFilterMode} from "../../stores/teacher.store.js";
+    import FilterSchoolClass from "./filter/FilterSchoolClass.svelte";
 
     let className;
 
@@ -30,16 +32,24 @@
         <DayHeader hourCount="{$longestDay[3]}">Donnerstag</DayHeader>
         <DayHeader hourCount="{$longestDay[4]}">Freitag</DayHeader>
     </div>
-    {#each $school as schoolClass, index}
-        <SchoolClass schoolClassIndex="{index}"></SchoolClass>
-    {/each}
-    <div>
-        {#if isClassNameError}
-            <div>Dont!</div>
-        {/if}
-        <input type="text" name="className" id="className" bind:value={className}>
-        <button on:click={onAddClass}>Add</button>
-    </div>
+    {#if $isFilterMode}
+        {#each $school as schoolClass, index}
+            {#if $isFilteredClass(index)}
+                <FilterSchoolClass schoolClassIndex="{index}"></FilterSchoolClass>
+            {/if}
+        {/each}
+    {:else}
+        {#each $school as schoolClass, index}
+            <SchoolClass schoolClassIndex="{index}"></SchoolClass>
+        {/each}
+        <div>
+            {#if isClassNameError}
+                <div>Dont!</div>
+            {/if}
+            <input type="text" name="className" id="className" bind:value={className}>
+            <button on:click={onAddClass}>Add</button>
+        </div>
+    {/if}
 </main>
 
 <style>

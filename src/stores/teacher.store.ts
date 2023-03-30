@@ -74,19 +74,17 @@ export function toggleFilterTeacher(teacherID: number) {
             filterList.push(teacherID);
         }
 
-        console.log(filterList);
-
         return filterList;
     })
 }
 
-export const isFilterdTeacher = derived(filterList, filterList => {
+export const isFilteredTeacher = derived(filterList, filterList => {
     return (id: number) => {
         return filterList.includes(id);
     }
 })
 
-export const isFilterdHour = derived(filterList, filterList => {
+export const isFilteredHour = derived(filterList, filterList => {
     return (schoolClassIndex: number, dayIndex: number, hourIndex: number) => {
 
         let schoolClasses = get(school);
@@ -103,6 +101,22 @@ export const isFilterdHour = derived(filterList, filterList => {
         }
 
         return false
+    }
+})
+
+export const isFilteredClass = derived(isFilteredHour, isFilteredHour => {
+    return (schoolClassIndex: number) => {
+
+        let schoolClasses = get(school);
+
+        for (let dayIndex = 0; dayIndex < 5; dayIndex++) {
+            for (let hourIndex = 0; hourIndex < schoolClasses[schoolClassIndex].week[dayIndex].length; hourIndex++) {
+                if (isFilteredHour(schoolClassIndex, dayIndex, hourIndex))
+                    return true;
+            }
+        }
+
+        return false;
     }
 })
 

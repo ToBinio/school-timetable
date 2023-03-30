@@ -1,4 +1,4 @@
-import {writable} from "svelte/store";
+import {derived, writable} from "svelte/store";
 import type {Subjects} from "../types/school";
 import {school} from "./school.store";
 
@@ -45,6 +45,19 @@ export function removeSubject(id: number) {
         return subjects;
     })
 }
+
+export const getSubjectById = derived(subjects, subjects => {
+    return (id: number) => {
+        for (let i = 0; i < subjects.length; i++) {
+            if (subjects[i].id == id) {
+                return subjects[i];
+            }
+        }
+
+        return {id: -1, name: "error!"}
+    }
+})
+
 
 //init
 // REMIND: remove
