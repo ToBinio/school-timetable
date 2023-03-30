@@ -2,8 +2,8 @@
     import SchoolClass from "./SchoolClass.svelte";
     import DayHeader from "./DayHeader.svelte";
     import {addClass, longestDay, school} from "../../stores/school.store.js";
-    import {isFilteredClass, isFilterMode} from "../../stores/teacher.store.js";
     import FilterSchoolClass from "./filter/FilterSchoolClass.svelte";
+    import {isFilteredClass, isFilterMode} from "../../stores/filter.store.js";
 
     let className;
 

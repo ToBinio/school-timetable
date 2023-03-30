@@ -1,7 +1,6 @@
 <script lang="ts">
-    import {getTeacherById, isFilteredHour, isFilterMode, teachers} from "../../stores/teacher.store.js";
+    import {teachers} from "../../stores/teacher.store.js";
     import {addHour, addTeacher, cleanTeacher, removeClass, removeHour, school} from "../../stores/school.store.js";
-    import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
     import MarkerDisplay from "./display/MarkerDisplay.svelte";
     import TeacherDisplay from "./display/TeacherDisplay.svelte";

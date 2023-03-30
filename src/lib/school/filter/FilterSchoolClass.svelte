@@ -1,8 +1,9 @@
 <script lang="ts">
     import {removeClass, school} from "../../../stores/school.store.js";
-    import {getTeacherById, isFilteredHour, isFilteredTeacher, teachers} from "../../../stores/teacher.store.js";
+    import {getTeacherById, teachers} from "../../../stores/teacher.store.js";
     import {markers} from "../../../ts/marker.js";
     import {getSubjectById} from "../../../stores/subject.store.js";
+    import {isFilteredHour, isFilteredTeacher} from "../../../stores/filter.store.js";
 
     export let schoolClassIndex: number
 

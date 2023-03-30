@@ -1,8 +1,9 @@
 <script lang="ts">
-    import {createTeacher, getTeacherById, removeTeacher, teachers, toggleFilterTeacher} from "../stores/teacher.store";
+    import {createTeacher, getTeacherById, removeTeacher, teachers} from "../stores/teacher.store";
     import {getWorkHours} from "../stores/workHour.store.js";
     import {get} from "svelte/store";
     import {ask} from "@tauri-apps/api/dialog";
+    import {toggleFilterTeacher} from "../stores/filter.store";
 
     let teacherName;
     let teacherColor;
