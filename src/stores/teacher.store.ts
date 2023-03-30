@@ -61,6 +61,8 @@ export const getTeacherById = derived(teachers, teachers => {
     }
 })
 
+//todo extra file for filterring
+
 const filterList = writable<number[]>([])
 
 export function toggleFilterTeacher(teacherID: number) {
