@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {getTeacherById, teachers} from "../../stores/teacher.store.js";
+    import {getTeacherById, isFilterdHour, isFilterMode, teachers} from "../../stores/teacher.store.js";
     import {addHour, addTeacher, cleanTeacher, removeClass, removeHour, school} from "../../stores/school.store.js";
     import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
@@ -47,13 +47,17 @@
             <div class="day">
                 {#each day as hour, hourIndex}
                     <div class="hour">
-                        {#if hour !== null}
+                        {#if hour !== null && !$isFilterMode}
                             <TeacherDisplay bind:day={day} hourIndex="{hourIndex}"
                                             on:add={() => onAddTeacher(dayIndex,hourIndex)}
                                             on:clean={(teacherIndex) => onCleanTeacher(dayIndex,hourIndex,teacherIndex.detail)}/>
                             <SubjectDisplay bind:subjectIndex={day[hourIndex].subject}/>
                             <MarkerDisplay bind:markerIndex={day[hourIndex].marker}/>
                             <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
+                        {:else if $isFilterdHour(schoolClassIndex, dayIndex, hourIndex)}
+                            <TeacherDisplay bind:day={day} hourIndex="{hourIndex}"
+                                            on:add={() => onAddTeacher(dayIndex,hourIndex)}
+                                            on:clean={(teacherIndex) => onCleanTeacher(dayIndex,hourIndex,teacherIndex.detail)}/>
                         {:else}
                             <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>
                         {/if}

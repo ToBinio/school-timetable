@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {createTeacher, getTeacherById, removeTeacher, teachers} from "../stores/teacher.store";
+    import {createTeacher, getTeacherById, removeTeacher, teachers, toggleFilterTeacher} from "../stores/teacher.store";
     import {getWorkHours} from "../stores/workHour.store.js";
     import {get} from "svelte/store";
     import {ask} from "@tauri-apps/api/dialog";
@@ -35,6 +35,10 @@
         if (await ask(`"${get(getTeacherById)(id).name}" löschen?`))
             removeTeacher(id)
     }
+
+    function toggleVisibility(id: number) {
+        toggleFilterTeacher(id);
+    }
 </script>
 
 <main>
@@ -44,6 +48,7 @@
                 <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
                 <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
                 <button on:click={() => onRemoveTeacher(teacher.id)}>X</button>
+                <input type="checkbox" name="visible" id="visible" on:change={() => toggleVisibility(teacher.id)}>
                 <div>Stunden: {$getWorkHours(teacher.id)}</div>
             </div>
         {/each}
