@@ -4,6 +4,8 @@ import {school} from "./school.store";
 export const getWorkHours = derived(school, (school) => {
     return (teacherId: number) => {
 
+        //todo only new hours now double in monday 1 hour
+
         let count = 0;
 
         for (let schoolClass of school) {
