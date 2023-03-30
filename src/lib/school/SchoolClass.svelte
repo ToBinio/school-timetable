@@ -4,6 +4,8 @@
     import {subjects} from "../../stores/subject.store.js";
     import {get} from "svelte/store";
     import MarkerDisplay from "./display/MarkerDisplay.svelte";
+    import TeacherDisplay from "./display/TeacherDisplay.svelte";
+    import SubjectDisplay from "./display/SubjectDisplay.svelte";
 
     export let schoolClassIndex: number
 
@@ -46,25 +48,11 @@
                 {#each day as hour, hourIndex}
                     <div class="hour">
                         {#if hour !== null}
-                            {#each hour.teachers as teacher, teacherIndex}
-                                <select name="teacher" id="teacher" bind:value={day[hourIndex].teachers[teacherIndex]}
-                                        on:change={() => onCleanTeacher(dayIndex,hourIndex,teacherIndex)}
-                                        style="background-color: {$getTeacherById(teacher).color}">
-                                    {#each $teachers as teacher}
-                                        <option value="{teacher.id}"
-                                                style="background-color: {teacher.color}">{teacher.name}</option>
-                                    {/each}
-                                    <option value="{undefined}"></option>
-                                </select>
-                            {/each}
-                            <button on:click={() => onAddTeacher(dayIndex,hourIndex)}>+</button>
-                            <select name="subject" id="subject" bind:value={day[hourIndex].subject}>
-                                {#each $subjects as subject}
-                                    <option value="{subject.id}">{subject.name}</option>
-                                {/each}
-                                <option value="{undefined}"></option>
-                            </select>
-                            <MarkerDisplay bind:markerIndex={day[hourIndex].marker}></MarkerDisplay>
+                            <TeacherDisplay bind:day={day} hourIndex="{hourIndex}"
+                                            on:add={() => onAddTeacher(dayIndex,hourIndex)}
+                                            on:clean={(teacherIndex) => onCleanTeacher(dayIndex,hourIndex,teacherIndex.detail)}/>
+                            <SubjectDisplay bind:subjectIndex={day[hourIndex].subject}/>
+                            <MarkerDisplay bind:markerIndex={day[hourIndex].marker}/>
                             <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}
                             <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>

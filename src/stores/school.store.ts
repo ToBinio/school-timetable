@@ -150,4 +150,3 @@ function getDayLength(school: School, dayIndex: number): number {
 addClass("1A")
 addClass("2A")
 addClass("3A")
-addClass("4A")
