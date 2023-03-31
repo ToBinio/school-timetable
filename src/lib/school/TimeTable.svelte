@@ -52,16 +52,16 @@
     {/if}
 </main>
 
-<style>
-    .table {
-        display: flex;
-    }
+<style lang="scss">
+  .table {
+    display: flex;
 
     .days {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
-        padding-top: 50px;
+      padding-top: 50px;
     }
+  }
 </style>

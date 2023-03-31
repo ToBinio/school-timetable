@@ -10,6 +10,3 @@
 <TimeTable/>
 <Teachers/>
 <Subjects/>
-
-<style>
-</style>
