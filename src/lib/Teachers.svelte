@@ -43,32 +43,70 @@
 </script>
 
 <main>
+    <div>
+        <h3>
+            Lehrer
+        </h3>
+    </div>
+    <div id="input" class="row">
+        <input type="text" name="teacherName" id="teacherName" bind:value={teacherName} placeholder="name"
+               class:error={isTeacherNameError}>
+        <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}
+               class:error={isTeacherColorError}>
+        <button on:click={onCreateTeacher} class="circleButton">
+            +
+        </button>
+    </div>
     <div class="teachers">
         {#each $teachers as teacher}
-            <div style="background-color: {teacher.color}">
-                <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
-                <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
-                <button on:click={() => onRemoveTeacher(teacher.id)}>X</button>
-                <input type="checkbox" name="visible" id="visible" on:change={() => toggleVisibility(teacher.id)}>
-                <div>Stunden: {$getWorkHours(teacher.id)}</div>
+            <div style="background-color: {teacher.color}" id="teacher">
+                <div>
+                    <input type="checkbox" name="visible" id="visible" on:change={() => toggleVisibility(teacher.id)}>
+                </div>
+                <div class="row">
+                    <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
+                    <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
+                    <button on:click={() => onRemoveTeacher(teacher.id)} class="circleButton">-</button>
+                </div>
+                <div>
+                    <div>Stunden: {$getWorkHours(teacher.id)}</div>
+                </div>
             </div>
         {/each}
     </div>
-    <div>
-        {#if isTeacherNameError}
-            <div>Dont!</div>
-        {/if}
-        <input type="text" name="teacherName" id="teacherName" bind:value={teacherName}>
-        {#if isTeacherColorError}
-            <div>Dont!</div>
-        {/if}
-        <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}>
-        <button on:click={onCreateTeacher}>add</button>
-    </div>
 </main>
 
-<style>
-    .teachers div {
-        width: min-content;
+<style lang="scss">
+
+  #input {
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 5px;
+  }
+
+  #teacher {
+
+    padding: 5px;
+
+    input[type=checkbox] {
+      padding: 0;
+      height: min-content;
     }
+  }
+
+  .error {
+    border-color: red;
+  }
+
+  input, button {
+    height: 25px;
+    box-sizing: border-box;
+  }
 </style>
