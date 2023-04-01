@@ -3,11 +3,17 @@
 
     export let markerIndex = 0
 </script>
-<main>
-    <select name="marker" id="marker" bind:value={markerIndex}>
-        {#each markers as marker, index}
-            <option value="{index}">{marker}</option>
-        {/each}
-        <option value="{null}"></option>
-    </select>
-</main>
+
+<select name="marker" bind:value={markerIndex}>
+    {#each markers as marker, index}
+        <option value="{index}">{marker}</option>
+    {/each}
+    <option value="{null}"></option>
+</select>
+
+<style lang="scss">
+  select {
+    background: transparent;
+    border: none;
+  }
+</style>

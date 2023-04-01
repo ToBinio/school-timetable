@@ -12,8 +12,8 @@
     }
 </script>
 
-<main>
-    <div id="header">
+<main class="classTable">
+    <div id="schoolHeader">
         <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
         <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
             {#each $teachers as teacher}
@@ -29,24 +29,31 @@
                 {#each day as hour, hourIndex}
                     <div class="hour">
                         {#if hour !== null && $isFilteredHour(schoolClassIndex, dayIndex, hourIndex)}
-                            <div>
+                            <div id="marker">
+                                {#if day[hourIndex].marker !== null}
+                                    {markers[day[hourIndex].marker]}
+                                {/if}
+                            </div>
+                            <div id="classTeachers">
                                 {#each hour.teachers as teacher}
                                     {#if $isFilteredTeacher(teacher)}
-                                        <div>
-                                            {$getTeacherById(teacher).name}
+                                        <div id="classTeacher"
+                                             style="background-color: {$getTeacherById(teacher).color}">
+                                            <div>
+                                                {$getTeacherById(teacher).name}
+                                            </div>
                                         </div>
                                     {/if}
                                 {/each}
                             </div>
-                            <div>
-                                {#if day[hourIndex].subject !== null}
-                                    {$getSubjectById(day[hourIndex].subject).name}
-                                {/if}
-                            </div>
-                            <div>
-                                {#if day[hourIndex].marker !== null}
-                                    {markers[day[hourIndex].marker]}
-                                {/if}
+                            <div id="classSubjects">
+                                <main>
+                                    {#if day[hourIndex].subject !== null}
+                                        <div>
+                                            {$getSubjectById(day[hourIndex].subject).name}
+                                        </div>
+                                    {/if}
+                                </main>
                             </div>
                         {/if}
                     </div>
@@ -57,23 +64,4 @@
 </main>
 
 <style>
-    #header {
-        height: 50px;
-        margin: 0;
-        padding: 0;
-    }
-
-    h2 {
-        margin: 0;
-        padding: 0;
-    }
-
-    .day {
-        border: 1px solid black;
-    }
-
-    .hour {
-        height: 25px;
-        display: flex;
-    }
 </style>

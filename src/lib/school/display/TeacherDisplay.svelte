@@ -18,13 +18,12 @@
 
 </script>
 
-<main>
+<main id="classTeachers">
     {#each day[hourIndex].teachers as teacher, teacherIndex}
 
-        <div>
-            <select name="teacher" id="teacher" bind:value={day[hourIndex].teachers[teacherIndex]}
-                    on:change={() => onCleanTeacher(teacherIndex)}
-                    style="background-color: {$getTeacherById(teacher).color}">
+        <div id="classTeacher" style="background-color: {$getTeacherById(teacher).color}">
+            <select name="teacher" bind:value={day[hourIndex].teachers[teacherIndex]}
+                    on:change={() => onCleanTeacher(teacherIndex)}>
                 {#each $teachers as teacher}
                     <option value="{teacher.id}"
                             style="background-color: {teacher.color}">{teacher.name}</option>
@@ -34,7 +33,7 @@
         </div>
 
     {/each}
-    <button on:click={onAddTeacher}>+</button>
+    <button on:click={onAddTeacher} class="schoolRightButton">+</button>
 </main>
 
 <style>

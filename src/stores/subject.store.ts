@@ -1,6 +1,7 @@
-import {derived, writable} from "svelte/store";
+import {derived, get, writable} from "svelte/store";
 import type {Subjects} from "../types/school";
 import {school} from "./school.store";
+import {ask} from "@tauri-apps/api/dialog";
 
 export const subjects = writable<Subjects>([])
 
@@ -13,7 +14,10 @@ export function addSubject(name: string) {
     })
 }
 
-export function removeSubject(id: number) {
+export async function removeSubject(id: number) {
+
+    if (!await ask(`"${get(getSubjectById)(id).name}" löschen?`)) return
+
     subjects.update((subjects) => {
 
         //remove subject from SubjectList

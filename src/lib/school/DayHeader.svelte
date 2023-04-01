@@ -13,33 +13,33 @@
     </div>
 </main>
 
-<style>
-    main {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+<style lang="scss">
+  main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-        flex: 1;
+    flex: 1;
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100%;
+
+    margin: 1px;
+
+    p {
+      margin-top: calc((40px - 15px) / 2 + 1px);
+      margin-bottom: calc((40px - 15px) / 2 + 1px);
+      height: 15px;
     }
+  }
 
-    .days {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-
-        height: 100%;
-    }
-
-    .days p {
-        margin: 0;
-    }
-
-    h3 {
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-    }
-
-    p{
-        height: 25px;
-    }
+  h3 {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
 </style>

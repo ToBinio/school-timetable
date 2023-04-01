@@ -1,7 +1,6 @@
 <script lang="ts">
     import {addSubject, removeSubject} from "../stores/subject.store";
     import {subjects} from "../stores/subject.store.js";
-    import {ask} from "@tauri-apps/api/dialog";
 
     let subjectName;
     let isNameError = false;
@@ -19,9 +18,8 @@
         subjectName = "";
     }
 
-    async function onRemoveSubject(id: number, name: string) {
-        if (await ask(`"${name}" löschen?`))
-            removeSubject(id)
+    function onRemoveSubject(id: number, name: string) {
+        removeSubject(id)
     }
 </script>
 

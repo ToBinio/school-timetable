@@ -1,6 +1,7 @@
 import {derived, get, writable} from "svelte/store";
 import type {Teachers} from "../types/school";
 import {school} from "./school.store";
+import {ask} from "@tauri-apps/api/dialog";
 
 export const teachers = writable<Teachers>([]);
 
@@ -13,7 +14,10 @@ export function createTeacher(name: string, color: string) {
     })
 }
 
-export function removeTeacher(id: number) {
+export async function removeTeacher(id: number) {
+
+    if (!await ask(`"${get(getTeacherById)(id).name}" löschen?`)) return
+
     teachers.update((teachers) => {
 
         //remove teacher from TeacherList
@@ -57,7 +61,8 @@ export const getTeacherById = derived(teachers, teachers => {
             }
         }
 
-        return {id: -1, name: "error", color: "#ffffff"}
+        //todo set better default color
+        return {id: -1, name: "error", color: "#dddddd"}
     }
 })
 

@@ -1,6 +1,7 @@
 import {derived, get, writable} from "svelte/store";
-import type {Day, School, SchoolClass} from "../types/school";
+import type {School, SchoolClass} from "../types/school";
 import {createEmptyWeek} from "../ts/util";
+import {ask} from "@tauri-apps/api/dialog";
 
 export const school = writable<School>([])
 
@@ -26,9 +27,12 @@ export function addClass(name: string) {
     })
 }
 
-export function removeClass(index: number) {
+export async function removeClass(index: number) {
+
+    if (!await ask(`"${get(school)[index].name}" löschen?`)) return
+
     school.update((school) => {
-        
+
         school.splice(index, 1);
 
         for (let dayIndex = 0; dayIndex < 5; dayIndex++) {

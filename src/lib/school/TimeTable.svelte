@@ -63,5 +63,7 @@
 
       padding-top: 50px;
     }
+
+    height: min-content;
   }
 </style>

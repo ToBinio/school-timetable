@@ -19,9 +19,14 @@
     </div>
 </div>
 
+<button on:click={() => window.print()}>
+    print
+</button>
+
 <style lang="scss">
   nav {
     position: relative;
+    width: 100%;
 
     h1 {
       text-align: center;

@@ -30,8 +30,8 @@
 
 </script>
 
-<main>
-    <div id="header">
+<main class="classTable">
+    <div id="schoolHeader">
         <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
         <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
             {#each $teachers as teacher}
@@ -47,14 +47,20 @@
                 {#each day as hour, hourIndex}
                     <div class="hour">
                         {#if hour !== null}
+                            <div id="marker">
+                                <MarkerDisplay bind:markerIndex={day[hourIndex].marker}/>
+                            </div>
                             <TeacherDisplay bind:day={day} hourIndex="{hourIndex}"
                                             on:add={() => onAddTeacher(dayIndex,hourIndex)}
                                             on:clean={(teacherIndex) => onCleanTeacher(dayIndex,hourIndex,teacherIndex.detail)}/>
-                            <SubjectDisplay bind:subjectIndex={day[hourIndex].subject}/>
-                            <MarkerDisplay bind:markerIndex={day[hourIndex].marker}/>
-                            <button on:click={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
+                            <div id="classSubjects">
+                                <SubjectDisplay bind:subjectIndex={day[hourIndex].subject}/>
+                            </div>
+                            <button id="classRemoveButton" class="schoolRightButton" on:dblclick={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}
-                            <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>
+                            <div class="classAdd">
+                                <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>
+                            </div>
                         {/if}
                     </div>
                 {/each}
@@ -64,23 +70,4 @@
 </main>
 
 <style>
-    #header {
-        height: 50px;
-        margin: 0;
-        padding: 0;
-    }
-
-    h2 {
-        margin: 0;
-        padding: 0;
-    }
-
-    .day {
-        border: 1px solid black;
-    }
-
-    .hour {
-        height: 25px;
-        display: flex;
-    }
 </style>
