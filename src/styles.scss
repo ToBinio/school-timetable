@@ -17,11 +17,11 @@
   //width: 20px;
   aspect-ratio: 1;
 
-  background-color: lightgray;
+  background-color: transparentize(black, 0.9);
 
   transition: 0.2s ease-out;
 }
 
 .circle:hover {
-  background-color: darkgray;
+  background-color: transparentize(black, 0.7);
 }

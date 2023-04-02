@@ -33,7 +33,7 @@
         </div>
 
     {/each}
-    <button on:click={onAddTeacher} class="schoolRightButton">+</button>
+    <button on:click={onAddTeacher} id="schoolTeacherAdd">+</button>
 </main>
 
 <style>

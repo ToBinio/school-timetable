@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {teachers} from "../../stores/teacher.store.js";
+    import {getTeacherById, teachers} from "../../stores/teacher.store.js";
     import {addHour, addTeacher, cleanTeacher, removeClass, removeHour, school} from "../../stores/school.store.js";
     import {get} from "svelte/store";
     import MarkerDisplay from "./display/MarkerDisplay.svelte";
@@ -32,14 +32,17 @@
 
 <main class="classTable">
     <div id="schoolHeader">
-        <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
-        <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
+        <div>
+            <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
+            <button on:click={onDeleteClass} class="circle">-</button>
+        </div>
+        <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}
+                style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}">
             {#each $teachers as teacher}
                 <option value="{teacher.id}"
                         style="background-color: {teacher.color}">{teacher.name}</option>
             {/each}
         </select>
-        <button on:click={onDeleteClass}>-</button>
     </div>
     <div>
         {#each $school[schoolClassIndex].week as day, dayIndex}
@@ -56,7 +59,6 @@
                             <div id="classSubjects">
                                 <SubjectDisplay bind:subjectIndex={day[hourIndex].subject}/>
                             </div>
-                            <button id="classRemoveButton" class="schoolRightButton" on:dblclick={() => onRemoveHour(dayIndex,hourIndex)}>-</button>
                         {:else}
                             <div class="classAdd">
                                 <button on:click={() => onAddHour(dayIndex,hourIndex)}>+</button>

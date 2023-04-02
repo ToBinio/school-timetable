@@ -105,6 +105,10 @@ export function cleanTeacher(classIndex: number, dayIndex: number, hourIndex: nu
             teachers.splice(teacherIndex, 1);
         }
 
+        if(teachers.length == 0){
+            removeHour(classIndex,dayIndex,hourIndex);
+        }
+
         return school;
     })
 }

@@ -40,44 +40,44 @@
 </script>
 
 <main>
-    <div>
-        <h3>
+    <div id="input">
+
+        <h2>
             Lehrer
-        </h3>
-        <!--        todo simple view-->
+        </h2>
+
+        <div class="row">
+            <input type="text" name="teacherName" id="teacherName" bind:value={teacherName} placeholder="name"
+                   class:error={isTeacherNameError}>
+            <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}
+                   class:error={isTeacherColorError}>
+            <button on:click={onCreateTeacher} class="circle">
+                +
+            </button>
+        </div>
     </div>
-    <div id="input" class="row">
-        <input type="text" name="teacherName" id="teacherName" bind:value={teacherName} placeholder="name"
-               class:error={isTeacherNameError}>
-        <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}
-               class:error={isTeacherColorError}>
-        <button on:click={onCreateTeacher} class="circle">
-            +
-        </button>
-    </div>
-    <div id="teachers">
-        {#each $teachers as teacher}
-            <div style="background-color: {teacher.color}" id="teacher">
-                <div class="row">
-                    <input type="text" name="teacherName" id="name" bind:value={teacher.name}>
-                    <div>
-                        {$getWorkHours(teacher.id)}⌛
-                    </div>
-                    <button on:click={() => onRemoveTeacher(teacher.id)} class="circle">-</button>
+
+    {#each $teachers as teacher}
+        <div style="background-color: {teacher.color}" class="teacher">
+            <div class="row">
+                <input type="text" name="teacherName" bind:value={teacher.name}>
+                <div>
+                    {$getWorkHours(teacher.id)}
+                    <mark>⌛</mark>
                 </div>
-                <div class="filter">
-                    <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
-                    <input type="checkbox" name="visible" id="visible" on:change={() => toggleVisibility(teacher.id)}>
-                </div>
+                <button on:click={() => onRemoveTeacher(teacher.id)} class="circle">-</button>
             </div>
-        {/each}
-    </div>
+            <div class="filter">
+                <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
+                <input type="checkbox" name="visible" on:change={() => toggleVisibility(teacher.id)}>
+            </div>
+        </div>
+    {/each}
 </main>
 
 <style lang="scss">
   #input {
-    margin-bottom: 20px;
-    padding: 5px;
+    padding: 8px;
 
     input[type="color"] {
       border-radius: 3px;
@@ -94,6 +94,11 @@
     input[type="color"]::-webkit-color-swatch {
       border: none;
     }
+
+    h2 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
   }
 
   .row {
@@ -104,14 +109,14 @@
     gap: 5px;
   }
 
-  #teachers {
+  main {
 
     display: flex;
     flex-direction: column;
 
     gap: 10px;
 
-    #teacher {
+    .teacher {
       padding: 8px;
 
       display: flex;
@@ -149,25 +154,57 @@
 
         position: absolute;
         content: "🎨";
+
+        transition: 0.2s;
+
+        text-shadow: 0 0 6px transparentize(black, 0.5);
+      }
+
+      input[type=color]:hover:after {
+        text-shadow: 0 0 8px black;
       }
 
       input[type=checkbox] {
         padding: 0;
-        height: min-content;
+        margin: 0;
+
+        position: relative;
+
+        width: 20px;
+        height: 20px;
+
+        appearance: none;
       }
 
-      input[type=text] {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid black;
+      input[type=checkbox]:after{
+        position: absolute;
 
-        padding: 0;
+        top: 0;
+        left: 0;
+
+        content: "";
+
+        width: 20px;
+        height: 20px;
+
+        background: url("../../public/eye-closed.svg") no-repeat top left;
+        background-size: contain;
+      }
+
+      input[type=checkbox]:checked:after{
+        background: url("../../public/eye-open.svg") no-repeat top left;
+        background-size: contain;
       }
 
       .filter {
         display: flex;
         justify-content: space-between;
       }
+    }
+
+    mark {
+      background: none;
+      text-shadow: 0 0 6px transparentize(black, 0.5);
     }
   }
 
@@ -179,4 +216,14 @@
     height: 20px;
     box-sizing: border-box;
   }
+
+
+  input[type=text] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+
+    padding: 0;
+  }
+
 </style>

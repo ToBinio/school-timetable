@@ -29,17 +29,23 @@
 
     height: 100%;
 
-    margin: 1px;
+    margin: 1px 15px 1px 1px;
 
     p {
-      margin-top: calc((40px - 15px) / 2 + 1px);
-      margin-bottom: calc((40px - 15px) / 2 + 1px);
-      height: 15px;
+      margin-top: calc((40px - 20px) / 2 + 1px);
+      margin-bottom: calc((40px - 20px) / 2 + 1px);
+      height: 20px;
+
+      font-size: large;
     }
   }
 
   h3 {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+
+    font-size: x-large;
+
+    margin: 0 10px 0 20px;
   }
 </style>

@@ -9,6 +9,72 @@ $hour-height: 40px;
     height: 50px;
     margin: 0;
     padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      position: relative;
+      display: flex;
+
+      input {
+        width: 100%;
+        padding: 3px;
+
+        border: none;
+
+        font-size: larger;
+
+        border-radius: 10px;
+
+        text-align: center;
+      }
+
+      input:hover {
+        background-color: lightgray;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      button {
+        border-radius: 10px;
+
+        position: absolute;
+        right: 0;
+
+        width: 25px;
+        height: 25px;
+
+        opacity: 0;
+      }
+    }
+
+    select, #classTeacherName {
+      appearance: none;
+
+      border: none;
+
+      padding: 3px;
+
+      border-radius: 5px;
+
+      text-align: center;
+    }
+
+    select:focus {
+      outline: none;
+    }
+  }
+
+  #schoolHeader:hover {
+    div {
+      button {
+        opacity: 1;
+      }
+    }
   }
 
   h2 {
@@ -22,6 +88,7 @@ $hour-height: 40px;
     .hour {
 
       margin: 2px;
+
       height: $hour-height;
       width: $hour-width;
 
@@ -36,9 +103,6 @@ $hour-height: 40px;
         top: -6px;
         left: -6px;
 
-        height: 20px;
-        width: 20px;
-
         z-index: 100;
 
         scale: 1.3;
@@ -47,7 +111,7 @@ $hour-height: 40px;
 
         transition: 0.2s;
 
-        text-shadow: 2px 2px 3px transparentize(black, 0.6);
+        text-shadow: 0 0 6px black, 0 0 4px black;
 
         line-height: 20px;
 
@@ -56,10 +120,12 @@ $hour-height: 40px;
 
           line-height: 20px;
 
-          text-shadow: 2px 2px 3px transparentize(black, 0.6);
+          text-shadow: 0 0 6px black, 0 0 4px black;
 
           option {
             background-color: white;
+
+            overflow: visible;
           }
         }
 
@@ -103,18 +169,37 @@ $hour-height: 40px;
             transition: 0.1s;
 
             appearance: none;
+
+            text-align: center;
           }
 
           select:hover {
             background-color: transparentize(black, 0.9);
           }
+
+          select:focus {
+            outline: none;
+          }
         }
 
-        button {
+        #schoolTeacherAdd {
           top: 0;
 
-          border-top-left-radius: 30%;
-          border-top-right-radius: 50%;
+          border-radius: 5px;
+
+          position: absolute;
+
+          right: 0;
+
+          height: $hour-height;
+
+          background-color: transparent;
+          border: none;
+
+          opacity: 0;
+          transition: 0.2s;
+
+          z-index: 100;
         }
       }
 
@@ -152,30 +237,11 @@ $hour-height: 40px;
           select:hover {
             background-color: transparentize(black, 0.9);
           }
+
+          select:focus {
+            outline: none;
+          }
         }
-      }
-
-      #classRemoveButton {
-        bottom: 0;
-
-        z-index: 100;
-
-        border-bottom-left-radius: 30%;
-        border-bottom-right-radius: 50%;
-      }
-
-      .schoolRightButton {
-        position: absolute;
-
-        right: 0;
-
-        height: calc($hour-height / 2);
-
-        background-color: transparent;
-        border: none;
-
-        opacity: 0;
-        transition: 0.2s;
       }
 
       .classAdd {
@@ -207,15 +273,15 @@ $hour-height: 40px;
             scale: 1;
           }
         }
-      }
 
-      .schoolRightButton {
-        opacity: 1;
-        background-color: transparentize(black, 0.8);
-      }
+        #schoolTeacherAdd {
+          opacity: 1;
+          background-color: transparentize(black, 0.8);
+        }
 
-      .schoolRightButton:hover {
-        background-color: transparentize(black, 0.6);
+        #schoolTeacherAdd:hover {
+          background-color: transparentize(black, 0.6);
+        }
       }
 
       .classAdd {

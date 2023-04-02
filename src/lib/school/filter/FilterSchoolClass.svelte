@@ -14,14 +14,15 @@
 
 <main class="classTable">
     <div id="schoolHeader">
-        <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
-        <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}>
-            {#each $teachers as teacher}
-                <option value="{teacher.id}"
-                        style="background-color: {teacher.color}">{teacher.name}</option>
-            {/each}
-        </select>
-        <button on:click={onDeleteClass}>-</button>
+        <div>
+            <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
+            <button on:click={onDeleteClass} class="circle">-</button>
+        </div>
+        {#if $school[schoolClassIndex].defaultTeacher !== -1}
+            <div  id="classTeacherName" style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}">
+                {$getTeacherById($school[schoolClassIndex].defaultTeacher).name}
+            </div>
+        {/if}
     </div>
     <div>
         {#each $school[schoolClassIndex].week as day, dayIndex}
