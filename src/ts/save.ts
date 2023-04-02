@@ -44,8 +44,6 @@ export async function saveDataAtPath(path: string) {
     await invoke("save", {toSave: JSON.stringify(data, null, 2), path: path});
 
     updateMostRecentPath(path);
-
-    needsSave.set(false)
 }
 
 export async function loadData() {
@@ -69,8 +67,6 @@ export async function loadDataFromPath(path: string) {
     school.set(data.school);
     subjects.set(data.subjects);
     teachers.set(data.teachers);
-
-    needsSave.set(false)
 
     updateMostRecentPath(path);
 }

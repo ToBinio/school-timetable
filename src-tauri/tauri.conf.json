@@ -28,8 +28,9 @@
       "fs": {
         "readFile": true,
         "writeFile": true,
+        "createDir": true,
         "exists": true,
-        "scope": ["$APPCONFIG/*"]
+        "scope": ["$APPCONFIG/*","$APPCONFIG"]
       }
     },
     "bundle": {

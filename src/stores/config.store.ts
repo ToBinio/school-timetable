@@ -1,11 +1,12 @@
-import {exists, readTextFile, writeTextFile} from "@tauri-apps/api/fs";
-import {BaseDirectory} from "@tauri-apps/api/path";
+import {createDir, exists, readTextFile, writeTextFile} from "@tauri-apps/api/fs";
+import {appConfigDir, BaseDirectory} from "@tauri-apps/api/path";
 import {loadDataFromPath} from "../ts/save";
-import {get, writable} from "svelte/store";
+import {derived, get, writable} from "svelte/store";
 import type {configData} from "../types/save";
+import {needsSave} from "./update.store";
+import {school} from "./school.store";
 
 export const config = writable<configData | undefined>(undefined)
-
 export function getMostRecentPath(): string | undefined {
 
     let configData = get(config);
@@ -15,17 +16,41 @@ export function getMostRecentPath(): string | undefined {
     return configData.mostRecentPath;
 }
 
+export const mostRecentFile = derived(config, config => {
+
+    if (config == undefined) return undefined
+
+    let mostRecentPath = config.mostRecentPath;
+
+    if (mostRecentPath == undefined)
+        return undefined;
+
+    return mostRecentPath.split("\\").pop();
+})
+
+
 export function updateMostRecentPath(path: string) {
     let configData: configData = {mostRecentPath: path};
     writeTextFile("config.json", JSON.stringify(configData, null, 2), {dir: BaseDirectory.AppConfig})
+
+    needsSave.set(false)
 
     config.set(configData);
 }
 
 //load default
-if (await exists("config.json", {dir: BaseDirectory.AppConfig})) {
-    let configData: configData = JSON.parse(await readTextFile("config.json", {dir: BaseDirectory.AppConfig}));
-    await loadDataFromPath(configData.mostRecentPath);
+async function loadDefault() {
+    if (!await exists(await appConfigDir())) {
+        await createDir(await appConfigDir())
+    }
 
-    config.set(configData);
+    if (await exists("config.json", {dir: BaseDirectory.AppConfig})) {
+        let configData: configData = JSON.parse(await readTextFile("config.json", {dir: BaseDirectory.AppConfig}));
+
+        await loadDataFromPath(configData.mostRecentPath);
+
+        updateMostRecentPath(configData.mostRecentPath)
+    }
 }
+
+loadDefault().then();

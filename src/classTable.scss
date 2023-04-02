@@ -85,6 +85,8 @@ $hour-height: 40px;
   .day {
     border: 1px solid gray;
 
+    transition: 1s;
+
     .hour {
 
       margin: 2px;
