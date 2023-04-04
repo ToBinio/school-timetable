@@ -42,17 +42,17 @@
         {#each $school as schoolClass, index}
             <SchoolClass schoolClassIndex="{index}"></SchoolClass>
         {/each}
-        <div>
-            {#if isClassNameError}
-                <div>Dont!</div>
-            {/if}
-            <input type="text" name="className" id="className" bind:value={className}>
-            <button on:click={onAddClass}>Add</button>
+        <div id="create" class="hideOnPrint">
+            <input type="text" name="className" id="className" bind:value={className} class:error={isClassNameError}>
+            <button on:click={onAddClass} class="circle">+</button>
         </div>
     {/if}
 </main>
 
 <style lang="scss">
+
+  @import "../../style/variables";
+
   .table {
     display: flex;
 
@@ -65,5 +65,59 @@
     }
 
     height: min-content;
+  }
+
+  #create {
+    width: 100px;
+
+    height: min-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+
+    input {
+      width: 100%;
+
+      text-align: center;
+
+      border: none;
+      border-radius: 10px;
+
+      font-size: larger;
+
+      padding: 3px 3px 0;
+
+      transition: 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      height: 21px;
+      width: 45px;
+
+      border-radius: 5px;
+
+      background-color: $light;
+    }
+
+    button:hover {
+      background-color: $mid;
+    }
+  }
+
+  #create:hover {
+    input {
+      background-color: $light;
+    }
+
+    input.error {
+      outline: 1px solid red;
+    }
   }
 </style>

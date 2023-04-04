@@ -70,6 +70,3 @@
         {/each}
     </div>
 </main>
-
-<style>
-</style>

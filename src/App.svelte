@@ -5,44 +5,34 @@
     import Save from "./lib/Save.svelte";
 </script>
 
-<nav>
-    <h1>Stundenplan</h1>
-    <div id="save">
-        <Save/>
+<main>
+    <div>
+        <h1 class="hideOnPrint">Stundenplan</h1>
+        <TimeTable/>
     </div>
-</nav>
-<div id="body">
-    <TimeTable/>
     <div id="legend">
+        <Save/>
         <Teachers/>
         <Subjects/>
     </div>
-</div>
-
-<button on:click={() => window.print()}>
-    print
-</button>
+</main>
 
 <style lang="scss">
-  nav {
-    position: relative;
+  main {
+    display: flex;
+    justify-content: space-between;
+
     width: 100%;
 
     h1 {
       text-align: center;
     }
 
-    #save {
-      position: absolute;
-      top: 0;
-      right: 0;
+    #legend {
+      display: flex;
+      flex-direction: column;
+
+      gap: 20px;
     }
-  }
-
-  #body {
-    display: flex;
-    justify-content: space-between;
-
-    width: 100%;
   }
 </style>

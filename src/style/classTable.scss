@@ -1,18 +1,19 @@
-$hour-width: 150px;
-$hour-height: 40px;
+@import "variables";
 
 .classTable {
   #schoolHeader {
 
     width: $hour-width;
 
-    height: 50px;
+    height: 55px;
     margin: 0;
     padding: 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    gap: 5px;
 
     div {
       position: relative;
@@ -29,10 +30,11 @@ $hour-height: 40px;
         border-radius: 10px;
 
         text-align: center;
+
       }
 
       input:hover {
-        background-color: lightgray;
+        background-color: $light;
       }
 
       input:focus {
@@ -83,9 +85,9 @@ $hour-height: 40px;
   }
 
   .day {
-    border: 1px solid gray;
-
-    transition: 1s;
+    border: 1px solid $mid;
+    margin-left: -1px;
+    margin-bottom: -1px;
 
     .hour {
 
@@ -98,6 +100,7 @@ $hour-height: 40px;
 
       div {
         display: flex;
+        justify-content: center;
       }
 
       #marker {
@@ -113,7 +116,7 @@ $hour-height: 40px;
 
         transition: 0.2s;
 
-        text-shadow: 0 0 6px black, 0 0 4px black;
+        text-shadow: 0 0 6px $dark, 0 0 4px $dark;
 
         line-height: 20px;
 
@@ -122,7 +125,7 @@ $hour-height: 40px;
 
           line-height: 20px;
 
-          text-shadow: 0 0 6px black, 0 0 4px black;
+          text-shadow: 0 0 6px $dark, 0 0 4px $dark;
 
           option {
             background-color: white;
@@ -143,7 +146,7 @@ $hour-height: 40px;
           }
         }
 
-        background-color: transparentize(black, 0.7);
+        background-color: transparentize($dark, 0.7);
       }
 
 
@@ -176,7 +179,7 @@ $hour-height: 40px;
           }
 
           select:hover {
-            background-color: transparentize(black, 0.9);
+            background-color: transparentize($dark, 0.9);
           }
 
           select:focus {
@@ -209,9 +212,11 @@ $hour-height: 40px;
         position: absolute;
         width: 100%;
 
+        transition: 0.1s;
+
         z-index: 10;
 
-        bottom: 0;
+        bottom: calc(($hour-height - 15px) / 2);
 
         main {
           width: 100%;
@@ -237,7 +242,7 @@ $hour-height: 40px;
           }
 
           select:hover {
-            background-color: transparentize(black, 0.9);
+            background-color: transparentize($dark, 0.9);
           }
 
           select:focus {
@@ -278,12 +283,16 @@ $hour-height: 40px;
 
         #schoolTeacherAdd {
           opacity: 1;
-          background-color: transparentize(black, 0.8);
+          background-color: transparentize($dark, 0.8);
         }
 
         #schoolTeacherAdd:hover {
-          background-color: transparentize(black, 0.6);
+          background-color: transparentize($dark, 0.6);
         }
+      }
+
+      #classSubjects {
+        bottom: 0;
       }
 
       .classAdd {
@@ -291,7 +300,7 @@ $hour-height: 40px;
           opacity: 1;
           scale: 1;
 
-          background: lightgray;
+          background: $light;
         }
       }
     }

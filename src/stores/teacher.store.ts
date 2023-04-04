@@ -5,11 +5,15 @@ import {ask} from "@tauri-apps/api/dialog";
 
 export const teachers = writable<Teachers>([]);
 
-let idCount = 0;
-
 export function createTeacher(name: string, color: string) {
     teachers.update((teachers) => {
-        teachers.push({color: color, id: idCount++, name: name})
+        let id = 0
+
+        if (teachers.length > 0) {
+            id = teachers[teachers.length - 1].id + 1
+        }
+
+        teachers.push({color: color, id: id, name: name})
         return teachers;
     })
 }
@@ -61,8 +65,7 @@ export const getTeacherById = derived(teachers, teachers => {
             }
         }
 
-        //todo set better default color
-        return {id: -1, name: "error", color: "#dddddd"}
+        return {id: -1, name: "error", color: "#d4d9dd"}
     }
 })
 

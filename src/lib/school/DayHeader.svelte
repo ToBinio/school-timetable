@@ -14,6 +14,8 @@
 </main>
 
 <style lang="scss">
+  @import "../../style/variables";
+
   main {
     display: flex;
     align-items: center;
@@ -32,8 +34,8 @@
     margin: 1px 15px 1px 1px;
 
     p {
-      margin-top: calc((40px - 20px) / 2 + 1px);
-      margin-bottom: calc((40px - 20px) / 2 + 1px);
+      margin-top: calc(($hour-height - 20px) / 2 + 1px);
+      margin-bottom: calc(($hour-height - 20px) / 2 + 1px);
       height: 20px;
 
       font-size: large;

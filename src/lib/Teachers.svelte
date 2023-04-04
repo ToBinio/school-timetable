@@ -40,14 +40,15 @@
 </script>
 
 <main>
-    <div id="input">
 
-        <h2>
-            Lehrer
-        </h2>
+    <div class="showOnPrint" style="height: 55px"></div>
+
+    <div id="input" class="hideOnPrint">
+
+        <h2>Lehrer</h2>
 
         <div class="row">
-            <input type="text" name="teacherName" id="teacherName" bind:value={teacherName} placeholder="name"
+            <input type="text" name="teacherName" id="teacherName" bind:value={teacherName} placeholder="neuer Lehrer"
                    class:error={isTeacherNameError}>
             <input type="color" name="teacherColor" id="teacherColor" bind:value={teacherColor}
                    class:error={isTeacherColorError}>
@@ -60,14 +61,16 @@
     {#each $teachers as teacher}
         <div style="background-color: {teacher.color}" class="teacher">
             <div class="row">
-                <input type="text" name="teacherName" bind:value={teacher.name}>
+                <input type="text" name="teacherName" bind:value={teacher.name} class="hideOnPrint">
+                <div class="showOnPrint">{teacher.name}</div>
+
                 <div>
                     {$getWorkHours(teacher.id)}
-                    <mark>⌛</mark>
+                    <p>⌛</p>
                 </div>
-                <button on:click={() => onRemoveTeacher(teacher.id)} class="circle">-</button>
+                <button on:click={() => onRemoveTeacher(teacher.id)} class="circle hideOnPrint">-</button>
             </div>
-            <div class="filter">
+            <div class="filter hideOnPrint">
                 <input type="color" name="teacherColor" id="color" bind:value={teacher.color}>
                 <input type="checkbox" name="visible" on:change={() => toggleVisibility(teacher.id)}>
             </div>
@@ -76,6 +79,8 @@
 </main>
 
 <style lang="scss">
+  @import "../style/variables";
+
   #input {
     padding: 8px;
 
@@ -95,9 +100,21 @@
       border: none;
     }
 
+    input[type="color"].error {
+      border: 1px solid red;
+    }
+
+    button {
+      background-color: $light;
+    }
+
     h2 {
       margin-top: 8px;
       margin-bottom: 8px;
+    }
+
+    .error {
+      border-color: red;
     }
   }
 
@@ -114,7 +131,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 2px;
 
     .teacher {
       padding: 8px;
@@ -157,11 +174,11 @@
 
         transition: 0.2s;
 
-        text-shadow: 0 0 6px transparentize(black, 0.5);
+        text-shadow: 0 0 6px transparentize($dark, 0.5);
       }
 
       input[type=color]:hover:after {
-        text-shadow: 0 0 8px black;
+        text-shadow: 0 0 8px $dark;
       }
 
       input[type=checkbox] {
@@ -176,7 +193,7 @@
         appearance: none;
       }
 
-      input[type=checkbox]:after{
+      input[type=checkbox]:after {
         position: absolute;
 
         top: 0;
@@ -191,7 +208,7 @@
         background-size: contain;
       }
 
-      input[type=checkbox]:checked:after{
+      input[type=checkbox]:checked:after {
         background: url("../../public/eye-open.svg") no-repeat top left;
         background-size: contain;
       }
@@ -202,14 +219,13 @@
       }
     }
 
-    mark {
+    p {
+      display: inline;
       background: none;
-      text-shadow: 0 0 6px transparentize(black, 0.5);
-    }
-  }
 
-  .error {
-    border-color: red;
+      margin-left: -5px;
+      text-shadow: 0 0 6px transparentize($dark, 0.5);
+    }
   }
 
   input, button {
@@ -217,13 +233,15 @@
     box-sizing: border-box;
   }
 
-
   input[type=text] {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $dark;
 
     padding: 0;
   }
 
+  input[type=text]:focus {
+    outline: none;
+  }
 </style>

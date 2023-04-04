@@ -5,11 +5,16 @@ import {ask} from "@tauri-apps/api/dialog";
 
 export const subjects = writable<Subjects>([])
 
-let idCount = 0;
-
 export function addSubject(name: string) {
     subjects.update((subjects) => {
-        subjects.push({id: idCount++, name: name})
+
+        let id = 0
+
+        if (subjects.length > 0) {
+            id = subjects[subjects.length - 1].id + 1
+        }
+
+        subjects.push({id: id, name: name})
         return subjects;
     })
 }

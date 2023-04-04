@@ -5,7 +5,6 @@ import {subjects} from "../stores/subject.store";
 import {teachers} from "../stores/teacher.store";
 import {invoke} from "@tauri-apps/api";
 import type {Data} from "../types/school";
-import {needsSave} from "../stores/update.store";
 import {getMostRecentPath, updateMostRecentPath} from "../stores/config.store";
 
 export async function saveData() {
@@ -41,9 +40,13 @@ export async function saveDataAtPath(path: string) {
         teachers: get(teachers)
     }
 
-    await invoke("save", {toSave: JSON.stringify(data, null, 2), path: path});
+    try {
+        await invoke("save", {toSave: JSON.stringify(data, null, 2), path: path});
 
-    updateMostRecentPath(path);
+        updateMostRecentPath(path);
+    } catch (err) {
+        alert("Konnte file: " + path + " nicht speicher!\n" + err)
+    }
 }
 
 export async function loadData() {
@@ -60,13 +63,20 @@ export async function loadData() {
 }
 
 export async function loadDataFromPath(path: string) {
-    let dataString: string = await invoke("load", {path: path})
 
-    let data: Data = JSON.parse(dataString);
+    console.log("loading from path: " + path);
 
-    school.set(data.school);
-    subjects.set(data.subjects);
-    teachers.set(data.teachers);
+    try {
+        let dataString: string = await invoke("load", {path: path})
 
-    updateMostRecentPath(path);
+        let data: Data = JSON.parse(dataString);
+
+        school.set(data.school);
+        subjects.set(data.subjects);
+        teachers.set(data.teachers);
+
+        updateMostRecentPath(path);
+    } catch (err) {
+        alert("Konnte file: " + path + " nicht lesen!\n" + err)
+    }
 }

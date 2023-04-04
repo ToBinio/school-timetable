@@ -6,70 +6,112 @@
     import {config, mostRecentFile} from "../stores/config.store.js";
 </script>
 
-<main>
-    <div id="needSave">
-        {#if $needsSave}
-            <div id="outer">
-                <div id="inner">
+<main class="hideOnPrint">
+    {#if $needsSave}
+        <div id="outer">
+            <div id="inner">
 
-                </div>
             </div>
-
+        </div>
+    {/if}
+    <div id="buttons">
+        <div id="needSave">
             {#if $config !== undefined}
-                <button on:click={saveData}>Save - {$mostRecentFile}</button>
+                <button on:click={saveData}>save - {$mostRecentFile}</button>
             {/if}
-        {/if}
-    </div>
-    <div id="save">
-        <button on:click={saveDataAs}>SaveAs</button>
-        <button on:click={loadData}>Load</button>
+        </div>
+        <div id="save">
+            <button on:click={saveDataAs}>save as</button>
+            <button on:click={loadData} class="left">load</button>
+            <button on:click={() => window.print()} class="left">print</button>
+        </div>
     </div>
 </main>
 
 <style lang="scss">
-  @media print {
-    main {
-      display: none;
+  @import "../style/variables";
+
+  main {
+    position: relative;
+
+    margin: 5px;
+
+    #buttons {
+      border-radius: 10px;
+
+      overflow: clip;
+
+      #needSave {
+
+        button {
+          width: 100%;
+          border-bottom: 1px solid $mid;
+
+          max-width: 250px;
+          white-space: nowrap;
+        }
+      }
+
+      #save {
+        display: flex;
+
+        button {
+          width: 50%;
+        }
+
+        .left {
+          border-left: 1px solid $mid;
+        }
+      }
+
+      button {
+        padding: 5px;
+        border: none;
+        background-color: $light;
+
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background-color: $mid;
+      }
+
+      button:focus{
+        outline: none;
+      }
     }
-  }
 
-  #needSave {
-    display: flex;
-    align-items: center;
+    #outer {
 
-    gap: 10px;
-  }
+      position: absolute;
+      top: -5px;
+      left: -5px;
 
-  #save {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  #outer {
-    width: 10px;
-    height: 10px;
-    background-color: red;
-
-    border-radius: 50%;
-
-    animation-name: outerBeat;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-
-    animation-timing-function: linear;
-
-    #inner {
       width: 10px;
       height: 10px;
       background-color: red;
 
       border-radius: 50%;
 
-      animation-name: innerBeat;
+      animation-name: outerBeat;
       animation-duration: 2s;
       animation-iteration-count: infinite;
 
       animation-timing-function: linear;
+
+      #inner {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+
+        border-radius: 50%;
+
+        animation-name: innerBeat;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        animation-timing-function: linear;
+      }
     }
   }
 
@@ -77,14 +119,17 @@
 
     from {
       scale: 1;
+      background-color: red;
     }
 
     30% {
       scale: 2;
+      background-color: darkred;
     }
 
     to {
       scale: 1;
+      background-color: red;
     }
   }
 
@@ -102,12 +147,7 @@
       filter: opacity(60%);
     }
 
-    50% {
-      scale: 2;
-      filter: opacity(30%);
-    }
-
-    70% {
+    60% {
       scale: 3;
       filter: opacity(0%);
     }
@@ -117,5 +157,4 @@
       filter: opacity(0%);
     }
   }
-
 </style>

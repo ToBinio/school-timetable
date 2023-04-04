@@ -1,0 +1,57 @@
+@import "variables";
+
+* {
+  font-family: monospace;
+  -webkit-print-color-adjust: exact;
+}
+
+.circle {
+  font-size: 15px;
+  line-height: 15px;
+
+  font-weight: bold;
+
+  padding: 0;
+
+  border-radius: 7px;
+  border: none;
+
+  aspect-ratio: 1;
+
+  background-color: transparentize($dark, 0.9);
+
+  transition: 0.2s ease-out;
+
+}
+
+.circle:hover {
+  background-color: transparentize($dark, 0.7) !important;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body::-webkit-scrollbar-track {
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $mid;
+
+  border: 2px solid white;
+
+  border-radius: 5px;
+}
+
+@media print {
+  .hideOnPrint {
+    display: none !important;
+  }
+}
+
+@media not print  {
+  .showOnPrint {
+    display: none !important;
+  }
+}
