@@ -8,19 +8,17 @@
   },
   "package": {
     "productName": "StundenPlan",
-    "version": "0.0.0"
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
+      "window": {
+        "all": true
       },
       "dialog": {
-        "all": true,
         "open": true,
-        "save": true
+        "save": true,
+        "ask": true
       },
       "path": {
         "all": true
@@ -30,7 +28,10 @@
         "writeFile": true,
         "createDir": true,
         "exists": true,
-        "scope": ["$APPCONFIG/*","$APPCONFIG"]
+        "scope": [
+          "$APPCONFIG/*",
+          "$APPCONFIG"
+        ]
       }
     },
     "bundle": {
@@ -43,7 +44,12 @@
         "icons/icon.ico"
       ],
       "identifier": "stundenPlan",
-      "targets": "all"
+      "targets": "all",
+      "windows": {
+        "wix": {
+          "language": "de-DE"
+        }
+      }
     },
     "security": {
       "csp": null

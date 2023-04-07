@@ -37,7 +37,8 @@
             <button on:click={onDeleteClass} class="circle">-</button>
         </div>
         <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}
-                style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}">
+                style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}"
+                class:hideOnPrint={$school[schoolClassIndex].defaultTeacher === -1}>
             {#each $teachers as teacher}
                 <option value="{teacher.id}"
                         style="background-color: {teacher.color}">{teacher.name}</option>
