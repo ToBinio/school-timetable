@@ -8,7 +8,7 @@
     </h3>
     <div class="days">
         {#each Array(hourCount) as _, i}
-            <p>{i + 1}</p>
+            <p>{i}</p>
         {/each}
     </div>
 </main>

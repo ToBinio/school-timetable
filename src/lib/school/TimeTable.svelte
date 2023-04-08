@@ -3,7 +3,7 @@
     import DayHeader from "./DayHeader.svelte";
     import {addClass, longestDay, school} from "../../stores/school.store.js";
     import FilterSchoolClass from "./filter/FilterSchoolClass.svelte";
-    import {isFilteredClass, isFilterMode} from "../../stores/filter.store.js";
+    import {isFilteredClass, isFilterMode, isHiddenClass, toggleHideClass} from "../../stores/filter.store.js";
 
     let className;
 
@@ -22,6 +22,10 @@
 
         className = "";
     }
+
+    function toggleVisibility(schoolClassIndex: number) {
+        toggleHideClass(schoolClassIndex);
+    }
 </script>
 
 <main class="table">
@@ -34,17 +38,50 @@
     </div>
     {#if $isFilterMode}
         {#each $school as schoolClass, index}
-            {#if $isFilteredClass(index)}
+            {#if $isFilteredClass(index) && !$isHiddenClass(index) }
                 <FilterSchoolClass schoolClassIndex="{index}"></FilterSchoolClass>
             {/if}
         {/each}
+        <div class="hideOnPrint create">
+            <div style="height: 50px"></div>
+            <div class="hiddenClasses">
+                {#each $school as schoolClass, index}
+                    {#if $isHiddenClass(index) && $isFilteredClass(index)}
+                        <div>
+                            <p>
+                                {schoolClass.name}
+                            </p>
+                            <button on:click={() => {toggleVisibility(index)}} class="circle"><img
+                                    src="public/eye-open.svg" alt="">
+                            </button>
+                        </div>
+                    {/if}
+                {/each}
+            </div>
+        </div>
     {:else}
         {#each $school as schoolClass, index}
-            <SchoolClass schoolClassIndex="{index}"></SchoolClass>
+            {#if !$isHiddenClass(index)}
+                <SchoolClass schoolClassIndex="{index}"></SchoolClass>
+            {/if}
         {/each}
-        <div id="create" class="hideOnPrint">
+        <div class="hideOnPrint create">
             <input type="text" name="className" id="className" bind:value={className} class:error={isClassNameError}>
             <button on:click={onAddClass} class="circle">+</button>
+            <div class="hiddenClasses">
+                {#each $school as schoolClass, index}
+                    {#if $isHiddenClass(index)}
+                        <div>
+                            <p>
+                                {schoolClass.name}
+                            </p>
+                            <button on:click={() => {toggleVisibility(index)}} class="circle"><img
+                                    src="public/eye-open.svg" alt="">
+                            </button>
+                        </div>
+                    {/if}
+                {/each}
+            </div>
         </div>
     {/if}
 </main>
@@ -67,8 +104,8 @@
     height: min-content;
   }
 
-  #create {
-    width: 100px;
+  .create {
+    width: 120px;
 
     height: min-content;
 
@@ -88,7 +125,7 @@
 
       font-size: larger;
 
-      padding: 3px 3px 0;
+      padding: 3px;
 
       transition: 0.2s;
     }
@@ -108,6 +145,56 @@
 
     button:hover {
       background-color: $mid;
+    }
+
+    .hiddenClasses {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 5px;
+
+      div {
+
+        background-color: $light;
+
+        width: 100px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 5px;
+
+        padding: 3px;
+        border-radius: 5px;
+
+        p {
+          margin: 0;
+          font-size: larger;
+
+          padding-left: 3px;
+
+          width: 72px;
+
+          overflow: hidden;
+          white-space: nowrap;
+        }
+
+        button {
+          border-radius: 10px;
+
+          width: 25px;
+          height: 25px;
+
+          img {
+            padding: 2.5px;
+            width: 20px;
+            height: 20px;
+          }
+
+          background-color: transparent;
+        }
+      }
     }
   }
 

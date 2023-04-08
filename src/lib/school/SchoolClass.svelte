@@ -5,15 +5,12 @@
     import MarkerDisplay from "./display/MarkerDisplay.svelte";
     import TeacherDisplay from "./display/TeacherDisplay.svelte";
     import SubjectDisplay from "./display/SubjectDisplay.svelte";
+    import {toggleHideClass} from "../../stores/filter.store";
 
     export let schoolClassIndex: number
 
     function onAddHour(day: number, hour: number) {
         addHour(schoolClassIndex, day, hour, get(school)[schoolClassIndex].defaultTeacher);
-    }
-
-    function onRemoveHour(day: number, hour: number) {
-        removeHour(schoolClassIndex, day, hour);
     }
 
     function onAddTeacher(day: number, hour: number) {
@@ -28,13 +25,18 @@
         removeClass(schoolClassIndex)
     }
 
+    function toggleVisibility() {
+        toggleHideClass(schoolClassIndex);
+    }
+
 </script>
 
 <main class="classTable">
     <div id="schoolHeader">
         <div>
+            <button id="hideButton" class="circle" name="hide" on:click={toggleVisibility}><img src="public/eye-closed-dark.svg" alt=""></button>
             <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
-            <button on:click={onDeleteClass} class="circle">-</button>
+            <button on:click={onDeleteClass} id="removeButton" class="circle">-</button>
         </div>
         <select name="mainTeacher" id="mainTeacher" bind:value={$school[schoolClassIndex].defaultTeacher}
                 style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}"

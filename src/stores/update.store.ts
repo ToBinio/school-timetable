@@ -27,7 +27,7 @@ subjects.subscribe(() => {
     needsSave.set(true);
 })
 
-await appWindow.listen("tauri://close-requested", async ({event, payload}) => {
+await appWindow.listen("tauri://close-requested", async () => {
 
     if (get(needsSave)) {
         if (!(await ask("Manche Änderungen wurden noch nicht gespeichert.\nTrotzdem fortfahren?"))) {

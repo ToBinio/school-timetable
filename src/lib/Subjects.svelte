@@ -81,7 +81,7 @@
       display: flex;
       justify-content: space-between;
 
-      background-color: $mid;
+      background-color: $light;
 
       button {
         width: 20px;

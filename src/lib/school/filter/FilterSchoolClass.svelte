@@ -1,25 +1,31 @@
 <script lang="ts">
     import {removeClass, school} from "../../../stores/school.store.js";
-    import {getTeacherById, teachers} from "../../../stores/teacher.store.js";
+    import {getTeacherById} from "../../../stores/teacher.store.js";
     import {markers} from "../../../ts/marker.js";
     import {getSubjectById} from "../../../stores/subject.store.js";
-    import {isFilteredHour, isFilteredTeacher} from "../../../stores/filter.store.js";
+    import {isFilteredHour, isFilteredTeacher, toggleHideClass} from "../../../stores/filter.store.js";
 
     export let schoolClassIndex: number
 
     function onDeleteClass() {
         removeClass(schoolClassIndex)
     }
+
+    function toggleVisibility() {
+        toggleHideClass(schoolClassIndex);
+    }
 </script>
 
 <main class="classTable">
     <div id="schoolHeader">
         <div>
+            <button id="hideButton" class="circle" name="hide" on:click={toggleVisibility}><img src="public/eye-closed-dark.svg" alt=""></button>
             <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
-            <button on:click={onDeleteClass} class="circle">-</button>
+            <button on:click={onDeleteClass} id="removeButton" class="circle">-</button>
         </div>
         {#if $school[schoolClassIndex].defaultTeacher !== -1}
-            <div  id="classTeacherName" style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}">
+            <div id="classTeacherName"
+                 style="background-color: {$getTeacherById($school[schoolClassIndex].defaultTeacher).color}">
                 {$getTeacherById($school[schoolClassIndex].defaultTeacher).name}
             </div>
         {/if}

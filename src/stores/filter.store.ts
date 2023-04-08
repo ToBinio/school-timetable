@@ -1,11 +1,12 @@
 import {derived, get, writable} from "svelte/store";
 import {school} from "./school.store";
 
-const filterList = writable<number[]>([])
+const filterTeacherList = writable<number[]>([])
+const hiddenClassList = writable<number[]>([])
 
 export function toggleFilterTeacher(teacherID: number) {
 
-    filterList.update(filterList => {
+    filterTeacherList.update(filterList => {
         let index = filterList.indexOf(teacherID);
 
         if (index != -1) {
@@ -18,13 +19,28 @@ export function toggleFilterTeacher(teacherID: number) {
     })
 }
 
-export const isFilteredTeacher = derived(filterList, filterList => {
+export function toggleHideClass(classIndex: number) {
+
+    hiddenClassList.update(filterList => {
+        let index = filterList.indexOf(classIndex);
+
+        if (index != -1) {
+            filterList.splice(index, 1);
+        } else {
+            filterList.push(classIndex);
+        }
+
+        return filterList;
+    })
+}
+
+export const isFilteredTeacher = derived(filterTeacherList, filterList => {
     return (id: number) => {
         return filterList.includes(id);
     }
 })
 
-export const isFilteredHour = derived(filterList, filterList => {
+export const isFilteredHour = derived(filterTeacherList, filterList => {
     return (schoolClassIndex: number, dayIndex: number, hourIndex: number) => {
 
         let schoolClasses = get(school);
@@ -44,7 +60,13 @@ export const isFilteredHour = derived(filterList, filterList => {
     }
 })
 
-export const isFilteredClass = derived(isFilteredHour, isFilteredHour => {
+export const isHiddenClass = derived(hiddenClassList, (hiddenClassList) => {
+    return (schoolClassIndex: number) => {
+        return hiddenClassList.includes(schoolClassIndex)
+    }
+})
+
+export const isFilteredClass = derived(isFilteredHour, (isFilteredHour) => {
     return (schoolClassIndex: number) => {
 
         let schoolClasses = get(school);
@@ -60,6 +82,6 @@ export const isFilteredClass = derived(isFilteredHour, isFilteredHour => {
     }
 })
 
-export const isFilterMode = derived(filterList, filterList => {
+export const isFilterMode = derived(filterTeacherList, filterList => {
     return filterList.length > 0
 })

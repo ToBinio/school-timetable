@@ -30,7 +30,6 @@
         border-radius: 10px;
 
         text-align: center;
-
       }
 
       input:hover {
@@ -45,12 +44,27 @@
         border-radius: 10px;
 
         position: absolute;
-        right: 0;
 
         width: 25px;
         height: 25px;
 
         opacity: 0;
+
+        img {
+          padding: 2.5px;
+          width: 20px;
+          height: 20px;
+        }
+
+        background-color: transparent;
+      }
+
+      #removeButton {
+        right: 0;
+      }
+
+      #hideButton {
+        left: 0;
       }
     }
 
