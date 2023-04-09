@@ -198,7 +198,7 @@
     }
   }
 
-  #create:hover {
+  .create:hover {
     input {
       background-color: $light;
     }
