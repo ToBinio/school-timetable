@@ -49,7 +49,8 @@
         "wix": {
           "language": "de-DE"
         }
-      }
+      },
+      "macOS": {}
     },
     "security": {
       "csp": null
