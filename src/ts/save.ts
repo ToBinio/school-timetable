@@ -21,8 +21,9 @@ export async function saveData() {
 export async function saveDataAs() {
 
     let path = await save({
-        defaultPath: "test.json",
-        title: "stundenplan.json"
+        defaultPath: "stundenplan.table",
+        title: "Stundenplan",
+        filters: [{name: "", extensions: ["table"]}]
     });
 
     if (path == null) {
@@ -51,7 +52,8 @@ export async function saveDataAtPath(path: string) {
 
 export async function loadData() {
     let path = await open({
-        multiple: false
+        multiple: false,
+        filters: [{name: "", extensions: ["table"]}]
     });
 
     if (path == null) {

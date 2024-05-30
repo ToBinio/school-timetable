@@ -204,12 +204,12 @@
         width: 20px;
         height: 20px;
 
-        background: url("../../public/eye-closed.svg") no-repeat top left;
+        background: url("/eye-closed.svg") no-repeat top left;
         background-size: contain;
       }
 
       input[type=checkbox]:checked:after {
-        background: url("../../public/eye-open.svg") no-repeat top left;
+        background: url("/eye-open.svg") no-repeat top left;
         background-size: contain;
       }
 

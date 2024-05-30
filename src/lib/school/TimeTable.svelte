@@ -52,7 +52,7 @@
                                 {schoolClass.name}
                             </p>
                             <button on:click={() => {toggleVisibility(index)}} class="circle"><img
-                                    src="public/eye-open.svg" alt="">
+                                    src="/eye-open.svg" alt="">
                             </button>
                         </div>
                     {/if}
@@ -76,7 +76,7 @@
                                 {schoolClass.name}
                             </p>
                             <button on:click={() => {toggleVisibility(index)}} class="circle"><img
-                                    src="public/eye-open.svg" alt="">
+                                    src="/eye-open.svg" alt="">
                             </button>
                         </div>
                     {/if}

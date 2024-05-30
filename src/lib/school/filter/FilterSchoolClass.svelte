@@ -19,7 +19,7 @@
 <main class="classTable">
     <div id="schoolHeader">
         <div>
-            <button id="hideButton" class="circle" name="hide" on:click={toggleVisibility}><img src="public/eye-closed-dark.svg" alt=""></button>
+            <button id="hideButton" class="circle" name="hide" on:click={toggleVisibility}><img src="/eye-closed-dark.svg" alt=""></button>
             <input type="text" name="className" id="className" bind:value={$school[schoolClassIndex].name}>
             <button on:click={onDeleteClass} id="removeButton" class="circle">-</button>
         </div>
