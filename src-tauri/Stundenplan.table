@@ -1,0 +1,2189 @@
+{
+  "school": [
+    {
+      "name": "1A",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": 3
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              14
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              0,
+              2
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              0,
+              2
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              0,
+              11
+            ],
+            "marker": 0,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              14
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": 0
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 0
+    },
+    {
+      "name": "1B",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2,
+              9
+            ],
+            "marker": null,
+            "subject": 6
+          },
+          {
+            "teachers": [
+              2,
+              9
+            ],
+            "marker": null,
+            "subject": 6
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2,
+              9
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              9,
+              2
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              9,
+              11
+            ],
+            "marker": 0,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2,
+              9
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              2,
+              3
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 2
+    },
+    {
+      "name": "2A",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": 0
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": 0
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              3
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 3
+    },
+    {
+      "name": "2B",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": 3
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              14
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              14
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              4,
+              14
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              14
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 4
+    },
+    {
+      "name": "3A",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5,
+              10
+            ],
+            "marker": null,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              0,
+              14
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              0,
+              14
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 8
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": 0,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              5,
+              14
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 9
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              5
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 5
+    },
+    {
+      "name": "3B",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 13
+          },
+          {
+            "teachers": [
+              6,
+              10
+            ],
+            "marker": null,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 8
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": 0,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              6,
+              14
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              6
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          {
+            "teachers": [
+              14,
+              6
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              14,
+              6
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 13
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 13
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 9
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 6
+    },
+    {
+      "name": "4A",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 9
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7,
+              4
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": 3
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": 0
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 7
+    },
+    {
+      "name": "4B",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 3
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": 10
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 9
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1
+            ],
+            "marker": 5,
+            "subject": 3
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8,
+              4
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": 1,
+            "subject": 1
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              1,
+              14
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          {
+            "teachers": [
+              1,
+              14
+            ],
+            "marker": 6,
+            "subject": 4
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": 8
+    },
+    {
+      "name": "Sonstiges",
+      "week": [
+        [
+          null,
+          null,
+          null,
+          null,
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              14
+            ],
+            "marker": null,
+            "subject": 14
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              2
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          null,
+          {
+            "teachers": [
+              11
+            ],
+            "marker": null,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              11
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              11
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          {
+            "teachers": [
+              11
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              14
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              0
+            ],
+            "marker": null,
+            "subject": null
+          },
+          {
+            "teachers": [
+              4
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          null,
+          null,
+          {
+            "teachers": [
+              5
+            ],
+            "marker": null,
+            "subject": 17
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              14
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": 11
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": 11
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": -1
+    },
+    {
+      "name": "Sonstiges",
+      "week": [
+        [
+          null,
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 16
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 5
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          {
+            "teachers": [
+              1
+            ],
+            "marker": 5,
+            "subject": 12
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": 11
+          },
+          {
+            "teachers": [
+              8
+            ],
+            "marker": null,
+            "subject": 11
+          },
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              9
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              7
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          {
+            "teachers": [
+              13
+            ],
+            "marker": null,
+            "subject": 2
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              3
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null,
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": -1
+    },
+    {
+      "name": "Sonstiges",
+      "week": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 18
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 18
+          },
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 16
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 18
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 19
+          },
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              10
+            ],
+            "marker": null,
+            "subject": 7
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 18
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 18
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 15
+          },
+          {
+            "teachers": [
+              15
+            ],
+            "marker": null,
+            "subject": 19
+          },
+          null
+        ]
+      ],
+      "defaultTeacher": -1
+    }
+  ],
+  "subjects": [
+    {
+      "id": 0,
+      "name": "GU"
+    },
+    {
+      "id": 1,
+      "name": "BSP"
+    },
+    {
+      "id": 2,
+      "name": "Rel"
+    },
+    {
+      "id": 3,
+      "name": "ME"
+    },
+    {
+      "id": 4,
+      "name": "WE"
+    },
+    {
+      "id": 5,
+      "name": "Achtsamkeit"
+    },
+    {
+      "id": 6,
+      "name": "PV"
+    },
+    {
+      "id": 7,
+      "name": "FU"
+    },
+    {
+      "id": 8,
+      "name": "Dig. Grundbildung"
+    },
+    {
+      "id": 9,
+      "name": "E"
+    },
+    {
+      "id": 10,
+      "name": "E Julie"
+    },
+    {
+      "id": 11,
+      "name": "LRS"
+    },
+    {
+      "id": 12,
+      "name": "Chor"
+    },
+    {
+      "id": 13,
+      "name": "SU"
+    },
+    {
+      "id": 14,
+      "name": "DAZ"
+    },
+    {
+      "id": 15,
+      "name": "AO"
+    },
+    {
+      "id": 16,
+      "name": "Sprachf. Kurs"
+    },
+    {
+      "id": 17,
+      "name": "Garten"
+    },
+    {
+      "id": 18,
+      "name": "SHP"
+    },
+    {
+      "id": 19,
+      "name": "pd"
+    }
+  ],
+  "teachers": [
+    {
+      "color": "#065b18",
+      "id": 0,
+      "name": "Monika"
+    },
+    {
+      "color": "#a26a5d",
+      "id": 1,
+      "name": "Heidi"
+    },
+    {
+      "color": "#91afd5",
+      "id": 2,
+      "name": "Agnes"
+    },
+    {
+      "color": "#920adb",
+      "id": 3,
+      "name": "Michi"
+    },
+    {
+      "color": "#16d312",
+      "id": 4,
+      "name": "Michaela"
+    },
+    {
+      "color": "#ffff00",
+      "id": 5,
+      "name": "Renate"
+    },
+    {
+      "color": "#ec131e",
+      "id": 6,
+      "name": "Lisa"
+    },
+    {
+      "color": "#544f69",
+      "id": 7,
+      "name": "Johannes"
+    },
+    {
+      "color": "#5f3207",
+      "id": 8,
+      "name": "Julia"
+    },
+    {
+      "color": "#99d73c",
+      "id": 9,
+      "name": "Petra"
+    },
+    {
+      "color": "#dea97d",
+      "id": 10,
+      "name": "Larissa"
+    },
+    {
+      "color": "#ff9609",
+      "id": 11,
+      "name": "Margrit"
+    },
+    {
+      "color": "#e4d8d8",
+      "id": 12,
+      "name": "Vesna"
+    },
+    {
+      "color": "#ecbbbb",
+      "id": 13,
+      "name": "Neriman"
+    },
+    {
+      "color": "#f084e2",
+      "id": 14,
+      "name": "Kathi"
+    },
+    {
+      "color": "#e4118c",
+      "id": 15,
+      "name": "Fiona"
+    }
+  ]
+}

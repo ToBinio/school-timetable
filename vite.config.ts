@@ -1,22 +1,15 @@
 import {defineConfig} from "vite";
 import {svelte} from "@sveltejs/vite-plugin-svelte";
-import sveltePreprocess from "svelte-preprocess";
-
-const mobile =
-    process.env.TAURI_PLATFORM === "android" ||
-    process.env.TAURI_PLATFORM === "ios";
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => ({
+export default defineConfig((env) => ({
     plugins: [
-        svelte({
-            preprocess: [
-                sveltePreprocess({
-                    typescript: true,
-                }),
-            ],
-        }),
+        svelte(),
     ],
+
+    css: {
+        transformer: "postcss"
+    },
 
     // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
     // prevent vite from obscuring rust errors
